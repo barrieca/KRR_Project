@@ -1,0 +1,26 @@
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX dbp: <http://dbpedia.org/property/>
+SELECT DISTINCT ?g ?director_o ?director_p ?programmer_o ?programmer_p ?artist_o ?artist_p ?gameArtist_o ?gameArtist_p ?composer_o ?composer_p ?writer_o ?writer_p ?designer_o ?designer_p ?genre_o ?genre_p WHERE {
+
+    ?g rdf:type dbo:VideoGame .
+    ?g rdf:type dbo:Software .
+    ?g dbo:computingPlatform dbr:PlayStation_4 .
+
+    OPTIONAL { ?g dbo:director ?director_o }
+    OPTIONAL { ?g dbp:director ?director_p }
+    OPTIONAL { ?g dbo:programmer ?programmer_o }
+    OPTIONAL { ?g dbp:programmer ?programmer_p }
+    OPTIONAL { ?g dbo:artist ?artist_o }
+    OPTIONAL { ?g dbp:artist ?artist_p }
+    OPTIONAL { ?g dbo:gameArtist ?gameArtist_o }
+    OPTIONAL { ?g dbp:gameArtist ?gameArtist_p }
+    OPTIONAL { ?g dbo:composer ?composer_o }
+    OPTIONAL { ?g dbp:composer ?composer_p }
+    OPTIONAL { ?g dbo:writer ?writer_o }
+    OPTIONAL { ?g dbp:writer ?writer_p }
+    OPTIONAL { ?g dbo:designer ?designer_o }
+    OPTIONAL { ?g dbp:designer ?designer_p }
+    OPTIONAL { ?g dbo:genre ?genre_o }
+    OPTIONAL { ?g dbp:genre ?genre_p }
+}

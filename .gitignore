@@ -1,0 +1,9 @@
+.idea/
+*.swp
+__pycache__/*
+*.csv
+*.pyc
+*.pyo
+*.orig
+.vscode/
+__MACOSX/
