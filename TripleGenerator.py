@@ -4,6 +4,89 @@ class TripleGenerator:
     def __init__(self):
         pass
 
+    def wtf(self):
+        '''
+        ToDo:
+            Convert so it's included in the original parsing
+            Add to include functionality for year_released, developer, category
+        :return:
+        '''
+        with open("triples.txt", encoding="utf8") as f:
+            list_of_lines = f.readlines()
+        fw = open("genres.txt", "w+", encoding="utf8")
+        genre_set = set()
+        person_set = set()
+        programmer_set = set()
+        artist_set = set()
+        composer_set = set()
+        writer_set = set()
+        director_set = set()
+        designer_set = set()
+
+        for line in list_of_lines:
+            tup = eval(line)
+            if tup[0] == "genre":
+                genre_set.add(tup[2])
+            elif tup[0] == "programmer":
+                programmer_set.add(tup[2])
+                person_set.add(tup[2])
+            elif tup[0] == "artist":
+                artist_set.add(tup[2])
+                person_set.add(tup[2])
+            elif tup[0] == "composer":
+                composer_set.add(tup[2])
+                person_set.add(tup[2])
+            elif tup[0] == "writer":
+                writer_set.add(tup[2])
+                person_set.add(tup[2])
+            elif tup[0] == "director":
+                director_set.add(tup[2])
+                person_set.add(tup[2])
+            elif tup[0] == "designer":
+                designer_set.add(tup[2])
+                person_set.add(tup[2])
+        for g in genre_set:
+            try:
+                fw.write('(isa '+g+' GameGenre)\n')
+            except UnicodeEncodeError:
+                print(g)
+        for p in programmer_set:
+            try:
+                fw.write('(isa ' + p + ' Programmer)\n')
+            except UnicodeEncodeError:
+                print(p)
+        for p in artist_set:
+            try:
+                fw.write('(isa ' + p + ' Artist)\n')
+            except UnicodeEncodeError:
+                print(p)
+        for p in writer_set:
+            try:
+                fw.write('(isa ' + p + ' Writer)\n')
+            except UnicodeEncodeError:
+                print(p)
+        for p in composer_set:
+            try:
+                fw.write('(isa ' + p + ' Composer)\n')
+            except UnicodeEncodeError:
+                print(p)
+        for p in director_set:
+            try:
+                fw.write('(isa ' + p + ' Director)\n')
+            except UnicodeEncodeError:
+                print(p)
+        for p in designer_set:
+            try:
+                fw.write('(isa ' + p + ' Designer)\n')
+            except UnicodeEncodeError:
+                print(p)
+        for p in person_set:
+            try:
+                fw.write('(isa ' + p + ' Person)\n')
+            except UnicodeEncodeError:
+                print(p)
+        fw.close()
+
     def __convert_row_to_triples(self, row):
         '''
         Converts a single row containing all information about a video game to the proper lisp-style triples.
