@@ -97,96 +97,135 @@ class TripleGenerator:
         triples = []
 
         for d in row.director:
-            triples.append(('director', row.game[0], d))
+            triples.append(('director', row.g[0], d))
 
         for p in row.programmer:
-            triples.append(('programmer', row.game[0], p))
+            triples.append(('programmer', row.g[0], p))
 
         for a in row.artist:
-            triples.append(('artist', row.game[0], a))
+            triples.append(('artist', row.g[0], a))
 
         for c in row.composer:
-            triples.append(('composer', row.game[0], c))
+            triples.append(('composer', row.g[0], c))
 
         for w in row.writer:
-            triples.append(('writer', row.game[0], w))
+            triples.append(('writer', row.g[0], w))
 
         for d in row.designer:
-            triples.append(('designer', row.game[0], d))
+            triples.append(('designer', row.g[0], d))
 
         for g in row.genre:
-            triples.append(('genre', row.game[0], g))
+            triples.append(('genre', row.g[0], g))
+
+        for d in row.developer:
+            triples.append(('developer', row.g[0], d))
+
+        for d in row.release_date:
+            triples.append(('release_date', row.g[0], d))
+
+        for s in row.score:
+            triples.append(('score', row.g[0], s))
 
         return triples
 
-    def create_triples_from_csv(self, input_path, output_path):
+    def __format_dataframe_strings(self, df):
         '''
-        Generates lisp style triples from a csv file.
+        Formats the values/strings present in the dataframe to the proper format.
+        :param df: A Pandas dataframe of values to format.
+        :return: A properly formatted Pandas dataframe.
+        '''
+        # Replace all NaNs with empty string
+        df = df.replace(pd.np.nan, '', regex=True)
+
+        # 1. Convert any numbers present into strings
+        df['score'] = df['score'].astype(str)
+
+        # 2. Format the strings in the columns properly
+        # 2a. Remove http://dbpedia.org/resource/
+        columns = list(df)
+        for col in columns:
+            df[col] = df[col].str.replace('http://dbpedia.org/resource/', '')
+            df[col] = df[col].str.replace('http://dbpedia.org/property/', '')
+            df[col] = df[col].str.replace('http://dbpedia.org/ontology/', '')
+
+        # 2b. Convert names containing spaces to have underscores (e.g. Makoto Sonoyama > Makoto_Sonoyama)
+        for col in columns:
+            df[col] = df[col].str.strip()
+            df[col] = df[col].str.replace(' ', '_')
+
+        return df
+
+
+
+    def __create_dataframe_from_csv(self, input_paths):
+        '''
+        Generates a Pandas dataframe of the games in the list of input csv's.
+        :param input_paths: List of filepaths to the csv files to convert to triples.
+        :return: A dataframe that is clean and in the proper format for generating triples.
+        '''
+
+        # Initialize the master dataframe that will collect all data for the triple output file.
+        df_games = pd.DataFrame({
+            'g': [],
+            'director': [],
+            'programmer': [],
+            'artist': [],
+            'composer': [],
+            'writer': [],
+            'designer': [],
+            'genre': [],
+            'developer': [],
+            'release_date': [],
+            'score': []
+        })
+
+        # 1. Collect the data from the all the csv's
+        for csv in input_paths:
+            # Read in the csv file
+            df_temp = pd.read_csv(csv)
+
+            # Format the dataframe values properly
+            df_temp = self.__format_dataframe_strings(df_temp)
+
+            # Add in the newest set of csv values into the global dataframe of games
+            df_games = df_games.append(df_temp, ignore_index=True)
+
+        # 2. Combine rows with same game name
+        # https://stackoverflow.com/questions/36271413/pandas-merge-nearly-duplicate-rows-based-on-column-value
+        df_games = df_games.groupby('g').agg({'director': ' '.join,
+                                              'programmer': ' '.join,
+                                              'artist': ' '.join,
+                                              'composer': ' '.join,
+                                              'writer': ' '.join,
+                                              'designer': ' '.join,
+                                              'genre': ' '.join,
+                                              'developer': ' '.join,
+                                              'release_date': ' '.join,
+                                              'score': ' '.join}).reset_index()
+
+        # Remove empty values
+        columns = list(df_games)
+        for col in columns:
+            df_games[col] = df_games[col].str.strip()
+
+        # Remove duplicate values and store all entries in the dataframe as a list
+        df_games = df_games.applymap(lambda x: list(set(x.split())))
+
+        return df_games
+
+
+    def create_triples_from_csv(self, input_paths, output_path):
+        '''
+        Generates a single file of lisp style triples from a list of csv files.
         :param input_path: File path to the csv file to convert to triples.
         :param output_path: File path to the text file where the new triples will be stored.
         :return: None
         '''
 
-        # 0. Read in the csv file
-        df_games = pd.read_csv(input_path)
-        columns = list(df_games)
+        # Generate a dataframe for the given list of csv files
+        df_games = self.__create_dataframe_from_csv(input_paths)
 
-        # Replace all NaNs with empty string
-        # for col in df_columns:
-        #     df_games[col] = df_games[col]
-        df_games = df_games.replace(pd.np.nan, '', regex=True)
-
-        # 1. Format the strings in the columns properly
-        # 1a. Remove http://dbpedia.org/resource/
-        for col in columns:
-            df_games[col] = df_games[col].str.replace('http://dbpedia.org/resource/', '')
-            df_games[col] = df_games[col].str.replace('http://dbpedia.org/property/', '')
-            df_games[col] = df_games[col].str.replace('http://dbpedia.org/ontology/', '')
-
-        # 1b. Convert names containing spaces to have underscores (e.g. Makoto Sonoyama > Makoto_Sonoyama)
-        for col in columns:
-            df_games[col] = df_games[col].str.replace(' ', '_')
-
-
-        # 2. Combine similar columns (artist_o artist_p gameArtist_o gameArtist_p > artist)
-        # https://stackoverflow.com/questions/19377969/combine-two-columns-of-text-in-dataframe-in-pandas-python
-        df_games['game'] = df_games[['g']]
-        df_games['director'] = df_games[['director_o', 'director_p']].agg(' '.join, axis=1)
-        df_games['programmer'] = df_games[['programmer_o', 'programmer_p']].agg(' '.join, axis=1)
-        df_games['artist'] = df_games[['artist_o', 'artist_p', 'gameArtist_o', 'gameArtist_p']].agg(' '.join, axis=1)
-        df_games['composer'] = df_games[['composer_o', 'composer_p']].agg(' '.join, axis=1)
-        df_games['writer'] = df_games[['writer_o', 'writer_p']].agg(' '.join, axis=1)
-        df_games['designer'] = df_games[['designer_o', 'designer_p']].agg(' '.join, axis=1)
-        df_games['genre'] = df_games[['genre_o', 'genre_p']].agg(' '.join, axis=1)
-
-        updated_columns = ['game','director','programmer','artist','composer','writer','designer','genre']
-
-        # Remove leading and trailing whitespace
-        for col in updated_columns:
-            df_games[col] = df_games[col].str.strip()
-
-        # Create a new dataframe with just the data we want to look at
-        df_games_new = df_games[updated_columns]
-
-        # 3. Combine rows with same game name
-        # https://stackoverflow.com/questions/36271413/pandas-merge-nearly-duplicate-rows-based-on-column-value
-        df_games_new = df_games_new.groupby('game').agg({'director': ' '.join,
-                                                         'programmer': ' '.join,
-                                                         'artist': ' '.join,
-                                                         'composer': ' '.join,
-                                                         'writer': ' '.join,
-                                                         'designer': ' '.join,
-                                                         'genre': ' '.join}).reset_index()
-
-        # Remove empty values
-        for col in updated_columns:
-            df_games_new[col] = df_games_new[col].str.strip()
-
-        # Remove duplicate values and store all entries in the dataframe as a list
-        df_games_new = df_games_new.applymap(lambda x: list(set(x.split())))
-
-
-        # 4. Write out each row (which should contain one game each) to a triples file
+        # 3. Write out each row (which should contain one game each) to a triples file
         # - Make this a separate function which takes a game name, a lists of the various properties to represent,
         # and the output file.
         # - May want to make this a member function of a Game Object, if we need more operations to be defined, or to
@@ -194,11 +233,8 @@ class TripleGenerator:
         # multiple dataframes and combine them that way first... more thought needed in the future.
 
         # Open and overwrite a file
-        f = open(output_path, 'w+')
-        f.truncate()
-
         with open(output_path, 'w+') as f:
-            for row in df_games_new.itertuples():
+            for row in df_games.itertuples():
                 triples = self.__convert_row_to_triples(row)
                 for t in triples:
                     f.write(str(t) + '\n')
