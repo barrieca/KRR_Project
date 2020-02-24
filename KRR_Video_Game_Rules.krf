@@ -1,0 +1,36 @@
+(in-microtheory VideoGamesMt)
+
+(<== (commonGenre ?game1 ?game2 ?genre)
+    (gameGenre ?game1 ?genre)
+    (gameGenre ?game2 ?genre))
+
+(<== (commonProgrammer ?game1 ?game2 ?programmer)
+    (programmer ?game1 ?programmer)
+    (programmer ?game2 ?programmer))
+    
+(<== (commonArtist ?game1 ?game2 ?artist)
+    (gameArtist ?game1 ?artist)
+    (gameArtist ?game2 ?artist))
+    
+(<== (commonComposer ?game1 ?game2 ?composer)
+    (gameComposer ?game1 ?composer)
+    (gameComposer ?game2 ?composer))
+    
+(<== (commonWriter ?game1 ?game2 ?writer)
+    (gameWriter ?game1 ?writer)
+    (gameWriter ?game2 ?writer))
+    
+(<== (commonDirector ?game1 ?game2 ?director)
+    (gameDirector ?game1 ?director)
+    (gameDirector ?game2 ?director))
+    
+(<== (commonDesigner ?game1 ?game2 ?designer)
+    (gameDesigner ?game1 ?designer)
+    (gameDesigner ?game2 ?designer))
+
+;;; checking if below horn clause is viable in Companions
+(<== (similarYear ?game1 ?game2)
+    (releaseYear ?game1 ?year1)
+    (releaseYear ?game2 ?year2)
+    (lessThanOrEqualTo (AbsoluteValueFn (PlusFn ?year1 -?year2)) 5))
+    
