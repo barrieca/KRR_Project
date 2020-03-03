@@ -4399,3 +4399,92 @@
 (arg1Isa ?game VideoGame)
 (arg2Isa ?person Person)
 (comment artist "(artist ?game ?person) says that ?person was a artist for ?game")
+
+;;; (commonGenre ?game1 ?game2 ?genre)
+(isa commonGenre relation)
+(arity commonGenre 3)
+(arg1Isa ?game1 VideoGame)
+(arg2Isa ?game2 VideoGame)
+(arg3Isa ?genre VideoGameGenre)
+(comment commonGenre "(commonGenre ?game1 ?game2 ?genre) says that ?game1 and ?game2 share ?genre")
+
+;;; (commonProgrammer ?game1 ?game2 ?programmer)
+(isa commonProgrammer relation)
+(arity commonProgrammer 3)
+(arg1Isa ?game1 VideoGame)
+(arg2Isa ?game2 VideoGame)
+(arg3Isa ?programmer Person)
+(comment commonProgrammer "(commonProgrammer ?game1 ?game2 ?programmer) says that ?game1 and ?game2 share ?programmer")
+
+;;; (commonArtist ?game1 ?game2 ?artist)
+(isa commonArtist relation)
+(arity commonArtist 3)
+(arg1Isa ?game1 VideoGame)
+(arg2Isa ?game2 VideoGame)
+(arg3Isa ?artist Person)
+(comment commonArtist "(commonArtist ?game1 ?game2 ?artist) says that ?game1 and ?game2 share ?artist")
+
+;;; (commonComposer ?game1 ?game2 ?composer)
+(isa commonComposer relation)
+(arity commonComposer 3)
+(arg1Isa ?game1 VideoGame)
+(arg2Isa ?game2 VideoGame)
+(arg3Isa ?composer Person)
+(comment commonComposer "(commonComposer ?game1 ?game2 ?composer) says that ?game1 and ?game2 share ?composer")
+
+;;; (commonWriter ?game1 ?game2 ?writer)
+(isa commonWriter relation)
+(arity commonWriter 3)
+(arg1Isa ?game1 VideoGame)
+(arg2Isa ?game2 VideoGame)
+(arg3Isa ?writer Person)
+(comment commonWriter "(commonWriter ?game1 ?game2 ?writer) says that ?game1 and ?game2 share ?writer")
+
+;;; (commonDirector ?game1 ?game2 ?director)
+(isa commonDirector relation)
+(arity commonDirector 3)
+(arg1Isa ?game1 VideoGame)
+(arg2Isa ?game2 VideoGame)
+(arg3Isa ?director Person)
+(comment commonDirector "(commonDirector ?game1 ?game2 ?director) says that ?game1 and ?game2 share ?director")
+
+;;; (commonDesigner ?game1 ?game2 ?designer)
+(isa commonDesigner relation)
+(arity commonDesigner 3)
+(arg1Isa ?game1 VideoGame)
+(arg2Isa ?game2 VideoGame)
+(arg3Isa ?designer Person)
+(comment commonDesigner "(commonDesigner ?game1 ?game2 ?designer) says that ?game1 and ?game2 share ?designer")
+
+
+
+;;; checking if below horn clause are viable in Companions
+(<== (similarYear ?game1 ?game2)
+    (releaseYear ?game1 ?year1)
+    (releaseYear ?game2 ?year2)
+    (lessThanOrEqualTo (AbsoluteValueFn (DifferenceFn ?year1 ?year2)) 5))
+
+(<== (gameSharingAttribute ?game ?game1 ?rel1 ?attribute1)
+    (?rel1 ?game1 ?game ?attribute1))
+
+(<== (allGamesSharingAttribute ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2 ?game3 ?rel3 ?attribute3)
+    (gamesSharingAttribute ?game ?game1 ?rel1 ?attribute1))
+
+(<== (allGamesSharingAttribute ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2 ?game3 ?rel3 ?attribute3)
+    (gamesSharingAttribute ?game ?game2 ?rel2 ?attribute2))
+
+(<== (allGamesSharingAttribute ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2 ?game3 ?rel3 ?attribute3)
+    (gamesSharingAttribute ?game ?game3 ?rel3 ?attribute3))
+
+(<== (gamesSharingTwoAttributes ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2)
+    (?rel1 ?game1 ?game ?attribute1)
+    (?rel2 ?game2 ?game ?attribute2))
+
+(<== (allGamesSharingTwoAttributes ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2 ?game3 ?rel3 ?attribute3)
+    (gamesSharingTwoAttributes ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2))
+
+(<== (allGamesSharingTwoAttributes ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2 ?game3 ?rel3 ?attribute3)
+
+(<== (allGamesSharingTwoAttributes ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2 ?game3 ?rel3 ?attribute3))
+
+(<== (gamesSharingAllAttributes ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2 ?game3 ?rel3 ?attribute3))
