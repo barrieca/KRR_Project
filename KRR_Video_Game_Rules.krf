@@ -34,7 +34,7 @@
     (releaseYear ?game2 ?year2)
     (lessThanOrEqualTo (AbsoluteValueFn (DifferenceFn ?year1 ?year2)) 5))
 
-(<== (gameSharingAttribute ?game ?game1 ?rel1 ?attribute1)
+(<== (gamesSharingAttribute ?game ?game1 ?rel1 ?attribute1)
     (?rel1 ?game1 ?game ?attribute1))
 
 (<== (allGamesSharingAttribute ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2 ?game3 ?rel3 ?attribute3)
