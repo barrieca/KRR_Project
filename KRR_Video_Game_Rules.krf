@@ -64,5 +64,5 @@
     (?rel2 ?game2 ?game ?attribute2)
     (?rel3 ?game3 ?game ?attribute3))
     
-(<== (favoredType ?user)
-    ())
+(<== (favoredType ?game1 ?game2 ?game3)
+    (sharedAttributes))

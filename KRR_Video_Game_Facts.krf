@@ -4340,8 +4340,6 @@
 (isa Don_Ferrone Person)
 (isa Hirotoshi_Shiozaki Person)
 
-
-
 (comment VideoGame "A specialization of Game. All instances of VideoGame are specifications of the game genre, people involved in the making of the game, time of release, etc.")
 (genls VideoGame Game)
 (isa VideoGame ObjectType)
@@ -4350,6 +4348,13 @@
 (comment VideoGameGenre "A specialization of ConceptualWorkTypeByGenre. All instances of VideoGameGenre are of the same genre.")
 (genls VideoGameGenre ConceptualWorkTypeByGenre)
 (isa FacetingCollectingType)
+
+;;; (platform ?game ?platform)
+(isa platform Predicate)
+(arity platform 2)
+(arg1Isa ?game VideoGame)
+(arg2Isa ?platform VideoGameSystem)
+(comment platform "(platform ?game ?platform) says that game ?game was released on VideoGameSystem ?platform")
 
 ;;; (gameGenre ?game ?genre)
 (isa gameGenre Predicate)
