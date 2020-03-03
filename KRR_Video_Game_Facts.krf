@@ -4340,6 +4340,8 @@
 (isa Don_Ferrone Person)
 (isa Hirotoshi_Shiozaki Person)
 
+
+
 (comment VideoGame "A specialization of Game. All instances of VideoGame are specifications of the game genre, people involved in the making of the game, time of release, etc.")
 (genls VideoGame Game)
 (isa VideoGame ObjectType)
