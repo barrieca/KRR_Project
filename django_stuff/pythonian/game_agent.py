@@ -42,7 +42,7 @@ class GameAgent(Pythonian):
         """
         logger.debug('received tell: %s', content)  # lazy logging
         # self.facts += [re.match('\(genls (\S+)', str(item)).group(1) for item in convert_to_list(content)]
-        self.facts = [re.match('\(genls (\S+)', str(item)).group(1) for item in convert_to_list(content)]
+        self.facts = [re.match('\(isa (\S+)', str(item)).group(1) for item in convert_to_list(content)]
         self.received = True
         reply_msg = KQMLPerformative('tell')
         reply_msg.set('sender', self.name)

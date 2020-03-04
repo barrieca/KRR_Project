@@ -17,7 +17,7 @@ def results(request):
         subclass = request.POST['subclass']
     except:
         subclass = ''
-    agent.ask_agent('session-reasoner', '(genls ?system ' + subclass + ')')
+    agent.ask_agent('session-reasoner', '(isa ?system ' + subclass + ')')
     while not agent.received:
         time.sleep(0.1) # check every 0.1 seconds until message received
     context = {
