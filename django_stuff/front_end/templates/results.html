@@ -1,0 +1,16 @@
+
+<html>
+<head>
+   <title>Game Recommender</title>
+  <!-- <link rel="stylesheet" type="text/css" href="style.css"/>-->
+</head>
+<body>
+    {% if games %}
+        <ul>
+        {% for result in games %}
+            <li>{{ result }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
