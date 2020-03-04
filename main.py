@@ -1,5 +1,6 @@
 import TripleGenerator as tg
 
+
 def main():
     generator = tg.TripleGenerator()
 

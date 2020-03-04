@@ -33,6 +33,36 @@
     (releaseYear ?game1 ?year1)
     (releaseYear ?game2 ?year2)
     (lessThanOrEqualTo (AbsoluteValueFn (DifferenceFn ?year1 ?year2)) 5))
+
+(<== (gamesSharingAttribute ?game ?game1 ?rel1 ?attribute1)
+    (?rel1 ?game1 ?game ?attribute1))
+
+(<== (allGamesSharingAttribute ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2 ?game3 ?rel3 ?attribute3)
+    (gamesSharingAttribute ?game ?game1 ?rel1 ?attribute1))
+
+(<== (allGamesSharingAttribute ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2 ?game3 ?rel3 ?attribute3)
+    (gamesSharingAttribute ?game ?game2 ?rel2 ?attribute2))
+
+(<== (allGamesSharingAttribute ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2 ?game3 ?rel3 ?attribute3)
+    (gamesSharingAttribute ?game ?game3 ?rel3 ?attribute3))
+
+(<== (gamesSharingTwoAttributes ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2)
+    (?rel1 ?game1 ?game ?attribute1)
+    (?rel2 ?game2 ?game ?attribute2))
+
+(<== (allGamesSharingTwoAttributes ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2 ?game3 ?rel3 ?attribute3)
+    (gamesSharingTwoAttributes ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2))
+
+(<== (allGamesSharingTwoAttributes ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2 ?game3 ?rel3 ?attribute3)
+    (gamesSharingTwoAttributes ?game ?game1 ?rel1 ?attribute1 ?game3 ?rel3 ?attribute3))
+
+(<== (allGamesSharingTwoAttributes ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2 ?game3 ?rel3 ?attribute3)
+    (gamesSharingTwoAttributes ?game ?game2 ?rel2 ?attribute2 ?game3 ?rel3 ?attribute3))
+
+(<== (gamesSharingAllAttributes ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2 ?game3 ?rel3 ?attribute3)
+    (?rel1 ?game1 ?game ?attribute1)
+    (?rel2 ?game2 ?game ?attribute2)
+    (?rel3 ?game3 ?game ?attribute3))
     
-(<== (favoredType ?user)
-    ())
+(<== (favoredType ?game1 ?game2 ?game3)
+    (sharedAttributes))
