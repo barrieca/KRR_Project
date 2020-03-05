@@ -292,22 +292,27 @@ class TripleGenerator:
         '''
         with open(path_to_triples, encoding="utf8") as f:
             list_of_lines = f.readlines()
-        fw = open(path_to_output_file, "w+", encoding="utf8")
+        out_f = open(path_to_output_file, "w+", encoding="utf8")
+
+        # Write out the header line for the csv
+        out_f.write('game_symbol, game_name\n')
+
         for line in list_of_lines:
-            line = line.strip()[1:-1]
-            tup = line.split(' ')
+            tup = eval(line)
             if tup[0] == "isa" and tup[2] == 'VideoGame':
                 game_name = tup[1]
 
                 # Clean up the game name
-                game_name = re.sub(r'[(]\d*_*video_game[)]', r'', game_name)
-                game_name = game_name.replace('_', ' ')
-                game_name = game_name.strip()
+                nice_game_name = re.sub(r'[(]\d*_*video_game[)]', r'', game_name)
+                nice_game_name = nice_game_name.replace('_', ' ')
+                nice_game_name = nice_game_name.strip()
 
                 try:
-                    fw.write(game_name+'\n')
+                    out_f.write(game_name + ', ' + nice_game_name + '\n')
                 except UnicodeEncodeError:
                     print(game_name)
+
+        out_f.close()
 
     def create_triples_from_csv(self, input_paths, output_path):
         '''
