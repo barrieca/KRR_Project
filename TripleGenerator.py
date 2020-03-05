@@ -62,52 +62,52 @@ class TripleGenerator:
         # Generate the triples instantiating the entities
         for g in genre_set:
             try:
-                fw.write('(isa '+g+' GameGenre)\n')
+                fw.write(str(('isa', g, 'GameGenre')) + '\n')
             except UnicodeEncodeError:
                 print(g)
         for p in programmer_set:
             try:
-                fw.write('(isa ' + p + ' Programmer)\n')
+                fw.write(str(('isa', p, 'Programmer')) + '\n')
             except UnicodeEncodeError:
                 print(p)
         for p in artist_set:
             try:
-                fw.write('(isa ' + p + ' Artist)\n')
+                fw.write(str(('isa', p, 'Artist')) + '\n')
             except UnicodeEncodeError:
                 print(p)
         for p in writer_set:
             try:
-                fw.write('(isa ' + p + ' Writer)\n')
+                fw.write(str(('isa', p, 'Writer')) + '\n')
             except UnicodeEncodeError:
                 print(p)
         for p in composer_set:
             try:
-                fw.write('(isa ' + p + ' Composer)\n')
+                fw.write(str(('isa', p, 'Composer')) + '\n')
             except UnicodeEncodeError:
                 print(p)
         for p in director_set:
             try:
-                fw.write('(isa ' + p + ' Director)\n')
+                fw.write(str(('isa', p, 'Director')) + '\n')
             except UnicodeEncodeError:
                 print(p)
         for p in designer_set:
             try:
-                fw.write('(isa ' + p + ' Designer)\n')
+                fw.write(str(('isa', p, 'Designer')) + '\n')
             except UnicodeEncodeError:
                 print(p)
         for p in person_set:
             try:
-                fw.write('(isa ' + p + ' Person)\n')
+                fw.write(str(('isa', p, 'Person')) + '\n')
             except UnicodeEncodeError:
                 print(p)
         for p in game_set:
             try:
-                fw.write('(isa ' + p + ' VideoGame)\n')
+                fw.write(str(('isa', p, 'VideoGame')) + '\n')
             except UnicodeEncodeError:
                 print(p)
         for p in developer_set:
             try:
-                fw.write('(isa ' + p + ' DevelopmentStudio)\n')
+                fw.write(str(('isa', p, 'DevelopmentStudio')) + '\n')
             except UnicodeEncodeError:
                 print(p)
         fw.close()
@@ -334,8 +334,6 @@ class TripleGenerator:
                 for t in triples:
                     f.write(str(t) + '\n')
 
-        self.generate_entity_instances(output_path, 'data/instance_triples.txt')
-
         print("Converted csv to triples. Results stored in " + output_path)
 
         return
@@ -367,3 +365,36 @@ class TripleGenerator:
         :return: The deaccented string.
         '''
         return unidecode.unidecode(string)
+
+    def generate_triples_krf(self, path_to_triples_txt, path_to_output_file, microtheory='VideoGamesMt'):
+        '''
+        Generates a properly formatted krf file with triples in the given microtheory.
+        :param path_to_triples_txt: The filepath to a text file of triples in the format: ('pred' 'arg1' 'arg2'),
+                                    i.e. tuples of strings
+        :param path_to_output_file: The filepath to the krf file.
+        :param microtheory: The microtheory in which the triples will be added in the krf file.
+        :return: None
+        '''
+        # Read in the triples text file
+        with open(path_to_triples_txt, encoding="utf8") as f:
+            list_of_lines = f.readlines()
+
+        # Create a new output file for this krf or overwrite the old one
+        out_f = open(path_to_output_file, "w+", encoding="utf8")
+
+        # Write out the microtheory line plus a newline char
+        out_f.write('(in-microtheory ' + microtheory + ')\n\n')
+
+        # Convert each line to a string output, and write it to the file
+        for line in list_of_lines:
+            tup = eval(line)
+            try:
+                out_f.write('(' + tup[0] + ' '+ tup[1] + ' ' + tup[2] + ')\n')
+            except UnicodeEncodeError:
+                print(line)
+
+        out_f.close()
+
+        print('Finished converting .txt to .krf')
+
+        return
