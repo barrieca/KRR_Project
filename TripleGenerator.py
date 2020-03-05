@@ -1,21 +1,25 @@
 import pandas as pd
 import unidecode # pip install Unidecode
-import csv
+import re
 
 class TripleGenerator:
     def __init__(self):
         pass
 
-    def wtf(self):
+    def generate_entity_instances(self, path_to_triples, path_to_output_file):
         '''
+        Generates additional triples that define the entity instances used in the originally generated triples.
+        :param path_to_original_triples: A path to the triples to create entity instances for.
+        :param path_to_output_file: A path to the file where the newly generated triples will be stored.
+        :return: None
         ToDo:
-            Convert so it's included in the original parsing
-            Add to include functionality for year_released, developer, category
-        :return:
+            Add to include functionality for category
         '''
-        with open("triples.txt", encoding="utf8") as f:
+        with open(path_to_triples, encoding="utf8") as f:
             list_of_lines = f.readlines()
-        fw = open("genres.txt", "w+", encoding="utf8")
+        fw = open(path_to_output_file, "w+", encoding="utf8")
+
+        # Get all unique instances of entities that we have data on
         genre_set = set()
         person_set = set()
         programmer_set = set()
@@ -24,6 +28,8 @@ class TripleGenerator:
         writer_set = set()
         director_set = set()
         designer_set = set()
+        game_set = set()
+        developer_set = set()
 
         for line in list_of_lines:
             tup = eval(line)
@@ -47,6 +53,13 @@ class TripleGenerator:
             elif tup[0] == "designer":
                 designer_set.add(tup[2])
                 person_set.add(tup[2])
+            elif tup[0] == "developmentStudio":
+                developer_set.add(tup[2])
+                person_set.add(tup[2])
+            elif tup[2] == "VideoGame":
+                game_set.add(tup[1])
+
+        # Generate the triples instantiating the entities
         for g in genre_set:
             try:
                 fw.write('(isa '+g+' GameGenre)\n')
@@ -87,16 +100,29 @@ class TripleGenerator:
                 fw.write('(isa ' + p + ' Person)\n')
             except UnicodeEncodeError:
                 print(p)
+        for p in game_set:
+            try:
+                fw.write('(isa ' + p + ' VideoGame)\n')
+            except UnicodeEncodeError:
+                print(p)
+        for p in developer_set:
+            try:
+                fw.write('(isa ' + p + ' DevelopmentStudio)\n')
+            except UnicodeEncodeError:
+                print(p)
         fw.close()
 
     def __convert_row_to_triples(self, row):
         '''
         Converts a single row containing all information about a video game to the proper lisp-style triples.
-        :param row: Row containing all relevant data aobut a single video game.
+        :param row: Row containing all relevant data about a single video game.
         :return: A list of lisp-style triples.
         '''
 
         triples = []
+
+        for n in row.g:
+            triples.append(('isa', n, 'VideoGame'))
 
         for d in row.director:
             triples.append(('director', row.g[0], d))
@@ -120,15 +146,59 @@ class TripleGenerator:
             triples.append(('genre', row.g[0], g))
 
         for d in row.developer:
-            triples.append(('developer', row.g[0], d))
+            triples.append(('developmentStudio', row.g[0], d))
 
-        for d in row.release_date:
-            triples.append(('release_date', row.g[0], d))
+        # Add the most recent release year for the game
+        most_recent_release_year = self.__get_recent_release_year(row.release_date)
+        if most_recent_release_year is not None:
+            triples.append(('releaseYear', row.g[0], str(most_recent_release_year)))
 
-        for s in row.score:
-            triples.append(('score', row.g[0], s))
+        # Add the highest review score for the game
+        highest_score = self.__get_highest_review_score(row.score)
+        if highest_score is not None:
+            triples.append(('score', row.g[0], str(highest_score)))
 
         return triples
+
+    def __get_highest_review_score(self, row_scores):
+        '''
+        Returns an integer representing the highest score in the dataframe cell of scores.
+        :param scores: The cell of a dataframe containing strings with scores.
+        :return: The highest score as an integer.
+        Note: These scores can be strings containing ints, floats, or scores pre-pended with platforms (i.e.
+        'XONE:_72/100')
+        '''
+        score_strings = [s for s in row_scores]
+        score_strings = [s.replace('/100', '') for s in score_strings]
+        score_strings = [s.replace('X360', '') for s in score_strings]
+
+        new_score_strings = []
+        for s in score_strings:
+            sub_strings = s.split('_')
+            for ss in sub_strings:
+                new_score_strings.extend(re.findall(r'\d+', ss))
+
+        scores = [int(float(s)) for s in new_score_strings]
+
+        return max(scores) if len(scores) > 0 else None
+
+    def __get_recent_release_year(self, row_dates):
+        '''
+        Returns an integer representing the most recent release year in the dataframe cell of dates.
+        :param row_dates: The cell of a dataframe containing strings with dates in YYYY-MM-DD format.
+        :return: The most recent release year as an integer.
+        '''
+        date_strings = [s for s in row_dates]
+
+        new_date_strings = []
+        for s in date_strings:
+            sub_strings = s.split('-')
+            for ss in sub_strings:
+                new_date_strings.extend(re.findall(r'\d+', ss))
+
+        years = [int(float(s)) for s in new_date_strings]
+
+        return max(years) if len(years) > 0 else None
 
     def __format_dataframe_strings(self, df):
         '''
@@ -136,6 +206,7 @@ class TripleGenerator:
         :param df: A Pandas dataframe of values to format.
         :return: A properly formatted Pandas dataframe.
         '''
+
         # Replace all NaNs with empty string
         df = df.replace(pd.np.nan, '', regex=True)
 
@@ -156,8 +227,6 @@ class TripleGenerator:
             df[col] = df[col].str.replace(' ', '_')
 
         return df
-
-
 
     def __create_dataframe_from_csv(self, input_paths):
         '''
@@ -215,6 +284,30 @@ class TripleGenerator:
 
         return df_games
 
+    def generate_list_of_game_names(self, path_to_triples, path_to_output_file='data/game_list.csv'):
+        '''
+        Writes a csv to data containing a nicely formatted list of games present in our data.
+        :param path_to_triples:
+        :return:
+        '''
+        with open(path_to_triples, encoding="utf8") as f:
+            list_of_lines = f.readlines()
+        fw = open(path_to_output_file, "w+", encoding="utf8")
+        for line in list_of_lines:
+            line = line.strip()[1:-1]
+            tup = line.split(' ')
+            if tup[0] == "isa" and tup[2] == 'VideoGame':
+                game_name = tup[1]
+
+                # Clean up the game name
+                game_name = re.sub(r'[(]\d*_*video_game[)]', r'', game_name)
+                game_name = game_name.replace('_', ' ')
+                game_name = game_name.strip()
+
+                try:
+                    fw.write(game_name+'\n')
+                except UnicodeEncodeError:
+                    print(game_name)
 
     def create_triples_from_csv(self, input_paths, output_path):
         '''
@@ -241,6 +334,8 @@ class TripleGenerator:
                 for t in triples:
                     f.write(str(t) + '\n')
 
+        self.generate_entity_instances(output_path, 'data/instance_triples.txt')
+
         print("Converted csv to triples. Results stored in " + output_path)
 
         return
@@ -256,7 +351,8 @@ class TripleGenerator:
         s = f.read()
 
         # Perform the cleaning
-        s = self.remove_accented_characters(s)
+        s = self.__remove_accented_characters(s)
+        s = s.replace('*', '')
 
         # Overwrite the file with the new string
         f.seek(0)
@@ -264,7 +360,7 @@ class TripleGenerator:
         f.write(s)
         f.close()
 
-    def remove_accented_characters(self, string):
+    def __remove_accented_characters(self, string):
         '''
         Deaccents any specials characters in the given string.
         :param string: A string to deaccent.

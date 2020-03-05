@@ -676,10 +676,10 @@
 "http://dbpedia.org/resource/Badland_(video_game)",,,,,,,"http://dbpedia.org/resource/Puzzle_video_game","Frogmind Games",,
 "http://dbpedia.org/resource/Basement_Crawl",,,,,,,"http://dbpedia.org/resource/2.5D","http://dbpedia.org/resource/Bloober_Team",1926-02-14,27
 "http://dbpedia.org/resource/Basement_Crawl",,,,,,,"http://dbpedia.org/resource/Action_Game","http://dbpedia.org/resource/Bloober_Team",1926-02-14,27
-"http://dbpedia.org/resource/Bastion_(video_game)",,"*Gavin Simon
-*Andrew Wang","Jen Zee","http://dbpedia.org/resource/Darren_Korb","http://dbpedia.org/resource/Greg_Kasavin","Amir Rao","http://dbpedia.org/resource/Action_role-playing_game","http://dbpedia.org/resource/Supergiant_Games",,"X360: 86/100"
-"http://dbpedia.org/resource/Bastion_(video_game)",,"*Gavin Simon
-*Andrew Wang","Jen Zee","http://dbpedia.org/resource/Darren_Korb","http://dbpedia.org/resource/Greg_Kasavin","Amir Rao","http://dbpedia.org/resource/Action_role-playing_game","http://dbpedia.org/resource/Supergiant_Games",,"PC: 86/100"
+"http://dbpedia.org/resource/Bastion_(video_game)",,"Gavin Simon
+Andrew Wang","Jen Zee","http://dbpedia.org/resource/Darren_Korb","http://dbpedia.org/resource/Greg_Kasavin","Amir Rao","http://dbpedia.org/resource/Action_role-playing_game","http://dbpedia.org/resource/Supergiant_Games",,"X360: 86/100"
+"http://dbpedia.org/resource/Bastion_(video_game)",,"Gavin Simon
+Andrew Wang","Jen Zee","http://dbpedia.org/resource/Darren_Korb","http://dbpedia.org/resource/Greg_Kasavin","Amir Rao","http://dbpedia.org/resource/Action_role-playing_game","http://dbpedia.org/resource/Supergiant_Games",,"PC: 86/100"
 "http://dbpedia.org/resource/Batman:_Arkham_Asylum","http://dbpedia.org/resource/Sefton_Hill",,,"http://dbpedia.org/resource/Ron_Fish","http://dbpedia.org/resource/Paul_Dini",,"http://dbpedia.org/resource/Action-adventure_game","http://dbpedia.org/resource/Rocksteady_Studios",,92
 "http://dbpedia.org/resource/Batman:_Arkham_Asylum","http://dbpedia.org/resource/Sefton_Hill",,,"http://dbpedia.org/resource/Ron_Fish","http://dbpedia.org/resource/Paul_Dini",,"http://dbpedia.org/resource/Action-adventure_game","http://dbpedia.org/resource/Rocksteady_Studios",,91
 "http://dbpedia.org/resource/Batman:_Arkham_City","http://dbpedia.org/resource/Sefton_Hill",,,"http://dbpedia.org/resource/Ron_Fish","http://dbpedia.org/resource/Paul_Dini",,"http://dbpedia.org/resource/Action-adventure_game","http://dbpedia.org/resource/Rocksteady_Studios",,91
@@ -3296,14 +3296,14 @@
 "http://dbpedia.org/resource/Driveclub","Col Rodgers","Kieran D'Archambaud","Alex Perkins","http://dbpedia.org/resource/Hybrid_(Welsh_band)",,"Simon Barlow","http://dbpedia.org/resource/Racing_video_game","http://dbpedia.org/resource/Evolution_Studios",,71
 "http://dbpedia.org/resource/Driveclub","Col Rodgers","Scott Kirkland","Alex Perkins","http://dbpedia.org/resource/Hybrid_(Welsh_band)",,"Simon Barlow","http://dbpedia.org/resource/Racing_video_game","http://dbpedia.org/resource/Evolution_Studios",,71
 "http://dbpedia.org/resource/Duck_Game",,,,,,,,"Landon Podbielski",2014-05-13,82
-"http://dbpedia.org/resource/Duelyst",,"*Emil Anticevic
-*Collin Hover
-*Marwan Hilmi","*Glauber Kotaki
-*Anton Fadeev","*Ben MacDougall",,"Eric Lang","http://dbpedia.org/resource/Collectible_card_game","http://dbpedia.org/resource/Counterplay_Games",2016-04-27,
-"http://dbpedia.org/resource/Duelyst",,"*Emil Anticevic
-*Collin Hover
-*Marwan Hilmi","*Glauber Kotaki
-*Anton Fadeev","*Ben MacDougall",,"Eric Lang","http://dbpedia.org/resource/Turn-based_Strategy","http://dbpedia.org/resource/Counterplay_Games",2016-04-27,
+"http://dbpedia.org/resource/Duelyst",,"Emil Anticevic
+Collin Hover
+Marwan Hilmi","Glauber Kotaki
+Anton Fadeev","Ben MacDougall",,"Eric Lang","http://dbpedia.org/resource/Collectible_card_game","http://dbpedia.org/resource/Counterplay_Games",2016-04-27,
+"http://dbpedia.org/resource/Duelyst",,"Emil Anticevic
+Collin Hover
+Marwan Hilmi","Glauber Kotaki
+Anton Fadeev","Ben MacDougall",,"Eric Lang","http://dbpedia.org/resource/Turn-based_Strategy","http://dbpedia.org/resource/Counterplay_Games",2016-04-27,
 "http://dbpedia.org/resource/Dungeons_2",,,,,,,"http://dbpedia.org/resource/Simulation_video_game","http://dbpedia.org/resource/Realmforge_Studios",1927-05-16,
 "http://dbpedia.org/resource/Dungeons_2",,,,,,,"http://dbpedia.org/resource/Strategy_video_game","http://dbpedia.org/resource/Realmforge_Studios",1927-05-16,
 "http://dbpedia.org/resource/Dungeons_2",,,,,,,"http://dbpedia.org/resource/Dungeon_management_game","http://dbpedia.org/resource/Realmforge_Studios",1927-05-16,
@@ -3956,78 +3956,78 @@
 "http://dbpedia.org/resource/Final_Fantasy_VII","http://dbpedia.org/resource/Yoshinori_Kitase","Ken Narita","http://dbpedia.org/resource/Yusuke_Naora","http://dbpedia.org/resource/Nobuo_Uematsu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_(company)",,92
 "http://dbpedia.org/resource/Final_Fantasy_VII","http://dbpedia.org/resource/Yoshinori_Kitase","Ken Narita","http://dbpedia.org/resource/Yusuke_Naora","http://dbpedia.org/resource/Nobuo_Uematsu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_(company)",,77
 "http://dbpedia.org/resource/Final_Fantasy_VII_Remake","http://dbpedia.org/resource/Tetsuya_Nomura",,"http://dbpedia.org/resource/Tetsuya_Nomura",,"http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Action_role-playing_game","http://dbpedia.org/resource/Square_Enix",,
-"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"*Hiroshi Harata
-*Yasunari Ohnishi
-*Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Nobuo_Uematsu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Virtuos",,84
-"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"*Hiroshi Harata
-*Yasunari Ohnishi
-*Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Masashi_Hamauzu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Virtuos",,84
-"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"*Hiroshi Harata
-*Yasunari Ohnishi
-*Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Junya_Nakano","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Virtuos",,84
-"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"*Hiroshi Harata
-*Yasunari Ohnishi
-*Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Nobuo_Uematsu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Virtuos",,86
-"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"*Hiroshi Harata
-*Yasunari Ohnishi
-*Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Masashi_Hamauzu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Virtuos",,86
-"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"*Hiroshi Harata
-*Yasunari Ohnishi
-*Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Junya_Nakano","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Virtuos",,86
-"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"*Hiroshi Harata
-*Yasunari Ohnishi
-*Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Nobuo_Uematsu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,83
-"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"*Hiroshi Harata
-*Yasunari Ohnishi
-*Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Masashi_Hamauzu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,83
-"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"*Hiroshi Harata
-*Yasunari Ohnishi
-*Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Junya_Nakano","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,83
-"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"*Hiroshi Harata
-*Yasunari Ohnishi
-*Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Nobuo_Uematsu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,86
-"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"*Hiroshi Harata
-*Yasunari Ohnishi
-*Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Masashi_Hamauzu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,86
-"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"*Hiroshi Harata
-*Yasunari Ohnishi
-*Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Junya_Nakano","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,86
-"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"*Hiroshi Harata
-*Yasunari Ohnishi
-*Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Nobuo_Uematsu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Virtuos",,83
-"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"*Hiroshi Harata
-*Yasunari Ohnishi
-*Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Masashi_Hamauzu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Virtuos",,83
-"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"*Hiroshi Harata
-*Yasunari Ohnishi
-*Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Junya_Nakano","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Virtuos",,83
-"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"*Hiroshi Harata
-*Yasunari Ohnishi
-*Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Nobuo_Uematsu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,84
-"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"*Hiroshi Harata
-*Yasunari Ohnishi
-*Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Masashi_Hamauzu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,84
-"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"*Hiroshi Harata
-*Yasunari Ohnishi
-*Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Junya_Nakano","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,84
-"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"*Hiroshi Harata
-*Yasunari Ohnishi
-*Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Nobuo_Uematsu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Virtuos",,85
-"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"*Hiroshi Harata
-*Yasunari Ohnishi
-*Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Masashi_Hamauzu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Virtuos",,85
-"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"*Hiroshi Harata
-*Yasunari Ohnishi
-*Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Junya_Nakano","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Virtuos",,85
-"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"*Hiroshi Harata
-*Yasunari Ohnishi
-*Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Nobuo_Uematsu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,85
-"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"*Hiroshi Harata
-*Yasunari Ohnishi
-*Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Masashi_Hamauzu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,85
-"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"*Hiroshi Harata
-*Yasunari Ohnishi
-*Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Junya_Nakano","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,85
+"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"Hiroshi Harata
+Yasunari Ohnishi
+Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Nobuo_Uematsu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Virtuos",,84
+"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"Hiroshi Harata
+Yasunari Ohnishi
+Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Masashi_Hamauzu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Virtuos",,84
+"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"Hiroshi Harata
+Yasunari Ohnishi
+Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Junya_Nakano","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Virtuos",,84
+"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"Hiroshi Harata
+Yasunari Ohnishi
+Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Nobuo_Uematsu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Virtuos",,86
+"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"Hiroshi Harata
+Yasunari Ohnishi
+Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Masashi_Hamauzu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Virtuos",,86
+"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"Hiroshi Harata
+Yasunari Ohnishi
+Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Junya_Nakano","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Virtuos",,86
+"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"Hiroshi Harata
+Yasunari Ohnishi
+Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Nobuo_Uematsu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,83
+"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"Hiroshi Harata
+Yasunari Ohnishi
+Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Masashi_Hamauzu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,83
+"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"Hiroshi Harata
+Yasunari Ohnishi
+Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Junya_Nakano","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,83
+"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"Hiroshi Harata
+Yasunari Ohnishi
+Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Nobuo_Uematsu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,86
+"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"Hiroshi Harata
+Yasunari Ohnishi
+Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Masashi_Hamauzu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,86
+"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"Hiroshi Harata
+Yasunari Ohnishi
+Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Junya_Nakano","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,86
+"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"Hiroshi Harata
+Yasunari Ohnishi
+Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Nobuo_Uematsu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Virtuos",,83
+"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"Hiroshi Harata
+Yasunari Ohnishi
+Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Masashi_Hamauzu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Virtuos",,83
+"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"Hiroshi Harata
+Yasunari Ohnishi
+Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Junya_Nakano","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Virtuos",,83
+"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"Hiroshi Harata
+Yasunari Ohnishi
+Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Nobuo_Uematsu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,84
+"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"Hiroshi Harata
+Yasunari Ohnishi
+Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Masashi_Hamauzu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,84
+"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"Hiroshi Harata
+Yasunari Ohnishi
+Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Junya_Nakano","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,84
+"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"Hiroshi Harata
+Yasunari Ohnishi
+Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Nobuo_Uematsu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Virtuos",,85
+"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"Hiroshi Harata
+Yasunari Ohnishi
+Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Masashi_Hamauzu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Virtuos",,85
+"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"Hiroshi Harata
+Yasunari Ohnishi
+Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Junya_Nakano","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Virtuos",,85
+"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"Hiroshi Harata
+Yasunari Ohnishi
+Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Nobuo_Uematsu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,85
+"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"Hiroshi Harata
+Yasunari Ohnishi
+Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Masashi_Hamauzu","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,85
+"http://dbpedia.org/resource/Final_Fantasy_X/X-2_HD_Remaster",,"Hiroshi Harata
+Yasunari Ohnishi
+Takashi Katano","http://dbpedia.org/resource/Shintaro_Takai","http://dbpedia.org/resource/Junya_Nakano","http://dbpedia.org/resource/Kazushige_Nojima",,"http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,85
 "http://dbpedia.org/resource/Final_Fantasy_XII","http://dbpedia.org/resource/Hiroshi_Minagawa","Takashi Katano","http://dbpedia.org/resource/Isamu_Kamikokuryo","http://dbpedia.org/resource/Masaharu_Iwata","http://dbpedia.org/resource/Yasumi_Matsuno","http://dbpedia.org/resource/Hiroyuki_Ito","http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,92
 "http://dbpedia.org/resource/Final_Fantasy_XII","http://dbpedia.org/resource/Hiroyuki_Ito","Takashi Katano","http://dbpedia.org/resource/Isamu_Kamikokuryo","http://dbpedia.org/resource/Masaharu_Iwata","http://dbpedia.org/resource/Yasumi_Matsuno","http://dbpedia.org/resource/Hiroyuki_Ito","http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,92
 "http://dbpedia.org/resource/Final_Fantasy_XII","http://dbpedia.org/resource/Hiroshi_Minagawa","Takashi Katano","http://dbpedia.org/resource/Isamu_Kamikokuryo","http://dbpedia.org/resource/Hayato_Matsuo","http://dbpedia.org/resource/Daisuke_Watanabe","http://dbpedia.org/resource/Hiroyuki_Ito","http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,92
@@ -4040,32 +4040,32 @@
 "http://dbpedia.org/resource/Final_Fantasy_XII","http://dbpedia.org/resource/Hiroyuki_Ito","Takashi Katano","http://dbpedia.org/resource/Isamu_Kamikokuryo","http://dbpedia.org/resource/Hayato_Matsuo","http://dbpedia.org/resource/Yasumi_Matsuno","http://dbpedia.org/resource/Hiroyuki_Ito","http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,92
 "http://dbpedia.org/resource/Final_Fantasy_XII","http://dbpedia.org/resource/Hiroshi_Minagawa","Takashi Katano","http://dbpedia.org/resource/Isamu_Kamikokuryo","http://dbpedia.org/resource/Hitoshi_Sakimoto","http://dbpedia.org/resource/Daisuke_Watanabe","http://dbpedia.org/resource/Hiroyuki_Ito","http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,92
 "http://dbpedia.org/resource/Final_Fantasy_XII","http://dbpedia.org/resource/Hiroyuki_Ito","Takashi Katano","http://dbpedia.org/resource/Isamu_Kamikokuryo","http://dbpedia.org/resource/Hitoshi_Sakimoto","http://dbpedia.org/resource/Daisuke_Watanabe","http://dbpedia.org/resource/Hiroyuki_Ito","http://dbpedia.org/resource/Role-playing_video_game","http://dbpedia.org/resource/Square_Enix",,92
-"http://dbpedia.org/resource/Final_Fantasy_XIV:_A_Realm_Reborn","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Masayoshi_Soken","Kazutoyo Maehiro","*Naoki Yoshida
-*Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2013-08-27,"PC: 83/100"
-"http://dbpedia.org/resource/Final_Fantasy_XIV:_A_Realm_Reborn","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Masayoshi_Soken","Kazutoyo Maehiro","*Naoki Yoshida
-*Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2014-04-14,"PC: 83/100"
-"http://dbpedia.org/resource/Final_Fantasy_XIV:_A_Realm_Reborn","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Masayoshi_Soken","Kazutoyo Maehiro","*Naoki Yoshida
-*Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2015-06-23,"PC: 83/100"
-"http://dbpedia.org/resource/Final_Fantasy_XIV:_A_Realm_Reborn","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Masayoshi_Soken","Kazutoyo Maehiro","*Naoki Yoshida
-*Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2013-08-27,"PS3: 78/100"
-"http://dbpedia.org/resource/Final_Fantasy_XIV:_A_Realm_Reborn","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Masayoshi_Soken","Kazutoyo Maehiro","*Naoki Yoshida
-*Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2014-04-14,"PS3: 78/100"
-"http://dbpedia.org/resource/Final_Fantasy_XIV:_A_Realm_Reborn","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Masayoshi_Soken","Kazutoyo Maehiro","*Naoki Yoshida
-*Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2015-06-23,"PS3: 78/100"
-"http://dbpedia.org/resource/Final_Fantasy_XIV:_A_Realm_Reborn","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Masayoshi_Soken","Kazutoyo Maehiro","*Naoki Yoshida
-*Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2013-08-27,"PS4: 86/100"
-"http://dbpedia.org/resource/Final_Fantasy_XIV:_A_Realm_Reborn","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Masayoshi_Soken","Kazutoyo Maehiro","*Naoki Yoshida
-*Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2014-04-14,"PS4: 86/100"
-"http://dbpedia.org/resource/Final_Fantasy_XIV:_A_Realm_Reborn","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Masayoshi_Soken","Kazutoyo Maehiro","*Naoki Yoshida
-*Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2015-06-23,"PS4: 86/100"
-"http://dbpedia.org/resource/Final_Fantasy_XIV:_Heavensward","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Nobuo_Uematsu","Kazutoyo Maehiro","* Naoki Yoshida
-* Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2015-06-23,"PC: 86/100"
-"http://dbpedia.org/resource/Final_Fantasy_XIV:_Heavensward","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Masayoshi_Soken","Kazutoyo Maehiro","* Naoki Yoshida
-* Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2015-06-23,"PC: 86/100"
-"http://dbpedia.org/resource/Final_Fantasy_XIV:_Heavensward","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Nobuo_Uematsu","Kazutoyo Maehiro","* Naoki Yoshida
-* Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2015-06-23,"PS4: 86/100"
-"http://dbpedia.org/resource/Final_Fantasy_XIV:_Heavensward","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Masayoshi_Soken","Kazutoyo Maehiro","* Naoki Yoshida
-* Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2015-06-23,"PS4: 86/100"
+"http://dbpedia.org/resource/Final_Fantasy_XIV:_A_Realm_Reborn","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Masayoshi_Soken","Kazutoyo Maehiro","Naoki Yoshida
+Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2013-08-27,"PC: 83/100"
+"http://dbpedia.org/resource/Final_Fantasy_XIV:_A_Realm_Reborn","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Masayoshi_Soken","Kazutoyo Maehiro","Naoki Yoshida
+Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2014-04-14,"PC: 83/100"
+"http://dbpedia.org/resource/Final_Fantasy_XIV:_A_Realm_Reborn","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Masayoshi_Soken","Kazutoyo Maehiro","Naoki Yoshida
+Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2015-06-23,"PC: 83/100"
+"http://dbpedia.org/resource/Final_Fantasy_XIV:_A_Realm_Reborn","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Masayoshi_Soken","Kazutoyo Maehiro","Naoki Yoshida
+Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2013-08-27,"PS3: 78/100"
+"http://dbpedia.org/resource/Final_Fantasy_XIV:_A_Realm_Reborn","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Masayoshi_Soken","Kazutoyo Maehiro","Naoki Yoshida
+Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2014-04-14,"PS3: 78/100"
+"http://dbpedia.org/resource/Final_Fantasy_XIV:_A_Realm_Reborn","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Masayoshi_Soken","Kazutoyo Maehiro","Naoki Yoshida
+Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2015-06-23,"PS3: 78/100"
+"http://dbpedia.org/resource/Final_Fantasy_XIV:_A_Realm_Reborn","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Masayoshi_Soken","Kazutoyo Maehiro","Naoki Yoshida
+Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2013-08-27,"PS4: 86/100"
+"http://dbpedia.org/resource/Final_Fantasy_XIV:_A_Realm_Reborn","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Masayoshi_Soken","Kazutoyo Maehiro","Naoki Yoshida
+Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2014-04-14,"PS4: 86/100"
+"http://dbpedia.org/resource/Final_Fantasy_XIV:_A_Realm_Reborn","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Masayoshi_Soken","Kazutoyo Maehiro","Naoki Yoshida
+Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2015-06-23,"PS4: 86/100"
+"http://dbpedia.org/resource/Final_Fantasy_XIV:_Heavensward","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Nobuo_Uematsu","Kazutoyo Maehiro"," Naoki Yoshida
+ Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2015-06-23,"PC: 86/100"
+"http://dbpedia.org/resource/Final_Fantasy_XIV:_Heavensward","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Masayoshi_Soken","Kazutoyo Maehiro"," Naoki Yoshida
+ Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2015-06-23,"PC: 86/100"
+"http://dbpedia.org/resource/Final_Fantasy_XIV:_Heavensward","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Nobuo_Uematsu","Kazutoyo Maehiro"," Naoki Yoshida
+ Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2015-06-23,"PS4: 86/100"
+"http://dbpedia.org/resource/Final_Fantasy_XIV:_Heavensward","http://dbpedia.org/resource/Naoki_Yoshida","Hideyuki Kasuga","http://dbpedia.org/resource/Akihiko_Yoshida","http://dbpedia.org/resource/Masayoshi_Soken","Kazutoyo Maehiro"," Naoki Yoshida
+ Nobuaki Komoto","http://dbpedia.org/resource/Massively_multiplayer_online_role-playing_game","http://dbpedia.org/resource/Square_Enix",2015-06-23,"PS4: 86/100"
 "http://dbpedia.org/resource/Final_Fantasy_XV","http://dbpedia.org/resource/Hajime_Tabata","Satoshi Kitade","http://dbpedia.org/resource/Isamu_Kamikokuryo","http://dbpedia.org/resource/Yoko_Shimomura","http://dbpedia.org/resource/Kazushige_Nojima","http://dbpedia.org/resource/Tetsuya_Nomura","http://dbpedia.org/resource/Action_role-playing_game","http://dbpedia.org/resource/Square_Enix",,
 "http://dbpedia.org/resource/Final_Fantasy_XV","http://dbpedia.org/resource/Hajime_Tabata","Satoshi Kitade","http://dbpedia.org/resource/Yusuke_Naora","http://dbpedia.org/resource/Yoko_Shimomura","http://dbpedia.org/resource/Kazushige_Nojima","http://dbpedia.org/resource/Tetsuya_Nomura","http://dbpedia.org/resource/Action_role-playing_game","http://dbpedia.org/resource/Square_Enix",,
 "http://dbpedia.org/resource/Final_Horizon",,,,,,,"http://dbpedia.org/resource/Tower_defense","http://dbpedia.org/resource/Eiconic_Games",2014-12-04,
@@ -4257,61 +4257,61 @@
 "http://dbpedia.org/resource/Full_Throttle_(1995_video_game)",,,"Peter Chan","http://dbpedia.org/resource/Peter_McConnell","http://dbpedia.org/resource/Tim_Schafer","http://dbpedia.org/resource/Tim_Schafer","http://dbpedia.org/resource/Graphic_adventure_game","http://dbpedia.org/resource/LucasArts",1995-04-30,
 "http://dbpedia.org/resource/Full_Throttle_(1995_video_game)",,,"Peter Chan","http://dbpedia.org/resource/Peter_McConnell","http://dbpedia.org/resource/Dave_Grossman_(game_developer)","http://dbpedia.org/resource/Tim_Schafer","http://dbpedia.org/resource/Graphic_adventure_game","http://dbpedia.org/resource/Double_Fine_Productions",1995-04-30,
 "http://dbpedia.org/resource/Full_Throttle_(1995_video_game)",,,"Peter Chan","http://dbpedia.org/resource/Peter_McConnell","http://dbpedia.org/resource/Tim_Schafer","http://dbpedia.org/resource/Tim_Schafer","http://dbpedia.org/resource/Graphic_adventure_game","http://dbpedia.org/resource/Double_Fine_Productions",1995-04-30,
-"http://dbpedia.org/resource/Furi","*Emeric Thoa
-*Nam Hoang
-*Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/Lorn_(musician)","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Shoot_'em_up","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
-"http://dbpedia.org/resource/Furi","*Emeric Thoa
-*Nam Hoang
-*Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/Danger_(musician)","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Shoot_'em_up","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
-"http://dbpedia.org/resource/Furi","*Emeric Thoa
-*Nam Hoang
-*Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/The_Toxic_Avenger_(musician)","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Shoot_'em_up","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
-"http://dbpedia.org/resource/Furi","*Emeric Thoa
-*Nam Hoang
-*Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/Carpenter_Brut","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Shoot_'em_up","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
-"http://dbpedia.org/resource/Furi","*Emeric Thoa
-*Nam Hoang
-*Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/Waveshaper_(musician)","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Shoot_'em_up","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
-"http://dbpedia.org/resource/Furi","*Emeric Thoa
-*Nam Hoang
-*Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/Lorn_(musician)","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Fighting_game","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
-"http://dbpedia.org/resource/Furi","*Emeric Thoa
-*Nam Hoang
-*Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/Danger_(musician)","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Fighting_game","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
-"http://dbpedia.org/resource/Furi","*Emeric Thoa
-*Nam Hoang
-*Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/The_Toxic_Avenger_(musician)","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Fighting_game","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
-"http://dbpedia.org/resource/Furi","*Emeric Thoa
-*Nam Hoang
-*Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/Carpenter_Brut","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Fighting_game","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
-"http://dbpedia.org/resource/Furi","*Emeric Thoa
-*Nam Hoang
-*Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/Waveshaper_(musician)","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Fighting_game","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
-"http://dbpedia.org/resource/Furi","*Emeric Thoa
-*Nam Hoang
-*Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/Lorn_(musician)","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Action_game","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
-"http://dbpedia.org/resource/Furi","*Emeric Thoa
-*Nam Hoang
-*Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/Danger_(musician)","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Action_game","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
-"http://dbpedia.org/resource/Furi","*Emeric Thoa
-*Nam Hoang
-*Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/The_Toxic_Avenger_(musician)","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Action_game","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
-"http://dbpedia.org/resource/Furi","*Emeric Thoa
-*Nam Hoang
-*Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/Carpenter_Brut","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Action_game","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
-"http://dbpedia.org/resource/Furi","*Emeric Thoa
-*Nam Hoang
-*Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/Waveshaper_(musician)","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Action_game","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
+"http://dbpedia.org/resource/Furi","Emeric Thoa
+Nam Hoang
+Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/Lorn_(musician)","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Shoot_'em_up","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
+"http://dbpedia.org/resource/Furi","Emeric Thoa
+Nam Hoang
+Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/Danger_(musician)","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Shoot_'em_up","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
+"http://dbpedia.org/resource/Furi","Emeric Thoa
+Nam Hoang
+Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/The_Toxic_Avenger_(musician)","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Shoot_'em_up","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
+"http://dbpedia.org/resource/Furi","Emeric Thoa
+Nam Hoang
+Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/Carpenter_Brut","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Shoot_'em_up","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
+"http://dbpedia.org/resource/Furi","Emeric Thoa
+Nam Hoang
+Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/Waveshaper_(musician)","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Shoot_'em_up","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
+"http://dbpedia.org/resource/Furi","Emeric Thoa
+Nam Hoang
+Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/Lorn_(musician)","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Fighting_game","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
+"http://dbpedia.org/resource/Furi","Emeric Thoa
+Nam Hoang
+Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/Danger_(musician)","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Fighting_game","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
+"http://dbpedia.org/resource/Furi","Emeric Thoa
+Nam Hoang
+Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/The_Toxic_Avenger_(musician)","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Fighting_game","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
+"http://dbpedia.org/resource/Furi","Emeric Thoa
+Nam Hoang
+Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/Carpenter_Brut","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Fighting_game","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
+"http://dbpedia.org/resource/Furi","Emeric Thoa
+Nam Hoang
+Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/Waveshaper_(musician)","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Fighting_game","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
+"http://dbpedia.org/resource/Furi","Emeric Thoa
+Nam Hoang
+Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/Lorn_(musician)","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Action_game","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
+"http://dbpedia.org/resource/Furi","Emeric Thoa
+Nam Hoang
+Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/Danger_(musician)","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Action_game","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
+"http://dbpedia.org/resource/Furi","Emeric Thoa
+Nam Hoang
+Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/The_Toxic_Avenger_(musician)","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Action_game","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
+"http://dbpedia.org/resource/Furi","Emeric Thoa
+Nam Hoang
+Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/Carpenter_Brut","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Action_game","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
+"http://dbpedia.org/resource/Furi","Emeric Thoa
+Nam Hoang
+Anthony Beyer","Nam Hoang",,"http://dbpedia.org/resource/Waveshaper_(musician)","Audrey Leprince","http://dbpedia.org/resource/Takashi_Okazaki","http://dbpedia.org/resource/Action_game","http://dbpedia.org/resource/The_Game_Bakers",2016-07-05,
 "http://dbpedia.org/resource/Futuridium_EP_Deluxe",,,,"Luca Gasperoni",,,"http://dbpedia.org/resource/Shoot'em_up","MixedBag",1926-05-16,65
 "http://dbpedia.org/resource/Futuridium_EP_Deluxe",,,,"Omar Ferrero",,,"http://dbpedia.org/resource/Shoot'em_up","MixedBag",1926-05-16,65
 "http://dbpedia.org/resource/Futuridium_EP_Deluxe",,,,"Luca Gasperoni",,,"http://dbpedia.org/resource/Shoot'em_up","MixedBag",1926-05-16,70
 "http://dbpedia.org/resource/Futuridium_EP_Deluxe",,,,"Omar Ferrero",,,"http://dbpedia.org/resource/Shoot'em_up","MixedBag",1926-05-16,70
 "http://dbpedia.org/resource/Futuridium_EP_Deluxe",,,,"Luca Gasperoni",,,"http://dbpedia.org/resource/Shoot'em_up","MixedBag",1926-05-16,74
 "http://dbpedia.org/resource/Futuridium_EP_Deluxe",,,,"Omar Ferrero",,,"http://dbpedia.org/resource/Shoot'em_up","MixedBag",1926-05-16,74
-"http://dbpedia.org/resource/Gal*Gun:_Double_Peace",,,,"http://dbpedia.org/resource/Ippo_Yamada",,,"http://dbpedia.org/resource/Bishojo_game","http://dbpedia.org/resource/Inti_Creates",2015-08-06,64
-"http://dbpedia.org/resource/Gal*Gun:_Double_Peace",,,,"http://dbpedia.org/resource/Ippo_Yamada",,,"http://dbpedia.org/resource/Rail_shooter","http://dbpedia.org/resource/Inti_Creates",2015-08-06,64
-"http://dbpedia.org/resource/Gal*Gun:_Double_Peace",,,,"http://dbpedia.org/resource/Ippo_Yamada",,,"http://dbpedia.org/resource/Bishojo_game","http://dbpedia.org/resource/Inti_Creates",2016-09-27,64
-"http://dbpedia.org/resource/Gal*Gun:_Double_Peace",,,,"http://dbpedia.org/resource/Ippo_Yamada",,,"http://dbpedia.org/resource/Rail_shooter","http://dbpedia.org/resource/Inti_Creates",2016-09-27,64
+"http://dbpedia.org/resource/GalGun:_Double_Peace",,,,"http://dbpedia.org/resource/Ippo_Yamada",,,"http://dbpedia.org/resource/Bishojo_game","http://dbpedia.org/resource/Inti_Creates",2015-08-06,64
+"http://dbpedia.org/resource/GalGun:_Double_Peace",,,,"http://dbpedia.org/resource/Ippo_Yamada",,,"http://dbpedia.org/resource/Rail_shooter","http://dbpedia.org/resource/Inti_Creates",2015-08-06,64
+"http://dbpedia.org/resource/GalGun:_Double_Peace",,,,"http://dbpedia.org/resource/Ippo_Yamada",,,"http://dbpedia.org/resource/Bishojo_game","http://dbpedia.org/resource/Inti_Creates",2016-09-27,64
+"http://dbpedia.org/resource/GalGun:_Double_Peace",,,,"http://dbpedia.org/resource/Ippo_Yamada",,,"http://dbpedia.org/resource/Rail_shooter","http://dbpedia.org/resource/Inti_Creates",2016-09-27,64
 "http://dbpedia.org/resource/Galak-Z:_The_Dimensional","Jake Kazdal","Zach Aikman","Jake Kazdal","scntfc","Mark Macdonald","Jake Kazdal","http://dbpedia.org/resource/Shooter_game","http://dbpedia.org/resource/17-BIT",2015-08-04,
 "http://dbpedia.org/resource/Galak-Z:_The_Dimensional","Jake Kazdal","Zach Aikman","Jake Kazdal","scntfc","Brian Van Buren","Jake Kazdal","http://dbpedia.org/resource/Shooter_game","http://dbpedia.org/resource/17-BIT",2015-08-04,
 "http://dbpedia.org/resource/Galak-Z:_The_Dimensional","Jake Kazdal","Zach Aikman","Jake Kazdal","scntfc","Jake Kazdal","Jake Kazdal","http://dbpedia.org/resource/Shooter_game","http://dbpedia.org/resource/17-BIT",2015-08-04,
@@ -9695,9 +9695,9 @@
 "http://dbpedia.org/resource/Gods_Eater_Burst","Hiro Yoshimura",,,"http://dbpedia.org/resource/Go_Shiina",,,"http://dbpedia.org/resource/Action_role-playing_game","http://dbpedia.org/resource/Shift_(company)",2015-03-10,71
 "http://dbpedia.org/resource/Godzilla_(2014_video_game)",,,,,,,"http://dbpedia.org/resource/Fighting_game","http://dbpedia.org/resource/Natsume_(company)",2014-07-14,38
 "http://dbpedia.org/resource/Godzilla_(2014_video_game)",,,,,,,"http://dbpedia.org/resource/Action-adventure_game","http://dbpedia.org/resource/Natsume_(company)",2014-07-14,38
-"http://dbpedia.org/resource/Golem_(video_game)","* Jaime Griesemer
-* Jared Noftle",,"* Vic Deleon
-* Travis Brady","http://dbpedia.org/resource/Martin_O'Donnell",,,,"http://dbpedia.org/resource/Highwire_Games",,
+"http://dbpedia.org/resource/Golem_(video_game)"," Jaime Griesemer
+ Jared Noftle",," Vic Deleon
+ Travis Brady","http://dbpedia.org/resource/Martin_O'Donnell",,,,"http://dbpedia.org/resource/Highwire_Games",,
 "http://dbpedia.org/resource/Gone_Home",,"Johnnemann Nordhagen","http://dbpedia.org/resource/Emily_Carroll","http://dbpedia.org/resource/Chris_Remo",,"http://dbpedia.org/resource/Steve_Gaynor","http://dbpedia.org/resource/Adventure_game","http://dbpedia.org/resource/Fullbright_(company)",2013-08-15,86
 "http://dbpedia.org/resource/Gone_Home",,"Johnnemann Nordhagen","http://dbpedia.org/resource/Emily_Carroll","http://dbpedia.org/resource/Chris_Remo",,"http://dbpedia.org/resource/Steve_Gaynor","http://dbpedia.org/resource/Adventure_game","http://dbpedia.org/resource/Majesco",2013-08-15,86
 "http://dbpedia.org/resource/Gone_Home",,"Johnnemann Nordhagen","http://dbpedia.org/resource/Emily_Carroll","http://dbpedia.org/resource/Chris_Remo",,"http://dbpedia.org/resource/Steve_Gaynor","http://dbpedia.org/resource/Exploration_game","http://dbpedia.org/resource/Fullbright_(company)",2013-08-15,86
@@ -9802,26 +9802,26 @@
 "http://dbpedia.org/resource/Guacamelee!",,,,"http://dbpedia.org/resource/Rom_Di_Prisco",,,"http://dbpedia.org/resource/Beat_'em_up","http://dbpedia.org/resource/DrinkBox_Studios",2010-04-13,90
 "http://dbpedia.org/resource/Guacamelee!",,,,"http://dbpedia.org/resource/Rom_Di_Prisco",,,"http://dbpedia.org/resource/Metroidvania","http://dbpedia.org/resource/DrinkBox_Studios",2010-04-13,90
 "http://dbpedia.org/resource/Guacamelee!",,,,"http://dbpedia.org/resource/Rom_Di_Prisco",,,"http://dbpedia.org/resource/Platform_game","http://dbpedia.org/resource/DrinkBox_Studios",2010-04-13,90
-"http://dbpedia.org/resource/Guilty_Gear_Xrd","http://dbpedia.org/resource/Daisuke_Ishiwatari",,"Hidehiko Sakamura","*Daisuke Ishiwatari
-*Norichika Sato","*Daisuke Ishiwatari
-*Takeshi Yamanaka
-*Yoshito Shoudai","http://dbpedia.org/resource/Daisuke_Ishiwatari","http://dbpedia.org/resource/Fighting_game","http://dbpedia.org/resource/Arc_System_Works",2010-06-16,84
-"http://dbpedia.org/resource/Guilty_Gear_Xrd","http://dbpedia.org/resource/Daisuke_Ishiwatari",,"Hidehiko Sakamura","*Daisuke Ishiwatari
-*Norichika Sato","*Daisuke Ishiwatari
-*Takeshi Yamanaka
-*Yoshito Shoudai","http://dbpedia.org/resource/Daisuke_Ishiwatari","http://dbpedia.org/resource/Fighting_game","http://dbpedia.org/resource/Arc_System_Works",2014-02-20,84
-"http://dbpedia.org/resource/Guilty_Gear_Xrd","http://dbpedia.org/resource/Daisuke_Ishiwatari",,"Hidehiko Sakamura","*Daisuke Ishiwatari
-*Norichika Sato","*Daisuke Ishiwatari
-*Takeshi Yamanaka
-*Yoshito Shoudai","http://dbpedia.org/resource/Daisuke_Ishiwatari","http://dbpedia.org/resource/Fighting_game","http://dbpedia.org/resource/Arc_System_Works",2015-08-25,84
-"http://dbpedia.org/resource/Guilty_Gear_Xrd","http://dbpedia.org/resource/Daisuke_Ishiwatari",,"Hidehiko Sakamura","*Daisuke Ishiwatari
-*Norichika Sato","*Daisuke Ishiwatari
-*Takeshi Yamanaka
-*Yoshito Shoudai","http://dbpedia.org/resource/Daisuke_Ishiwatari","http://dbpedia.org/resource/Fighting_game","http://dbpedia.org/resource/Arc_System_Works",2015-12-09,84
-"http://dbpedia.org/resource/Guilty_Gear_Xrd","http://dbpedia.org/resource/Daisuke_Ishiwatari",,"Hidehiko Sakamura","*Daisuke Ishiwatari
-*Norichika Sato","*Daisuke Ishiwatari
-*Takeshi Yamanaka
-*Yoshito Shoudai","http://dbpedia.org/resource/Daisuke_Ishiwatari","http://dbpedia.org/resource/Fighting_game","http://dbpedia.org/resource/Arc_System_Works",2016-12-14,84
+"http://dbpedia.org/resource/Guilty_Gear_Xrd","http://dbpedia.org/resource/Daisuke_Ishiwatari",,"Hidehiko Sakamura","Daisuke Ishiwatari
+Norichika Sato","Daisuke Ishiwatari
+Takeshi Yamanaka
+Yoshito Shoudai","http://dbpedia.org/resource/Daisuke_Ishiwatari","http://dbpedia.org/resource/Fighting_game","http://dbpedia.org/resource/Arc_System_Works",2010-06-16,84
+"http://dbpedia.org/resource/Guilty_Gear_Xrd","http://dbpedia.org/resource/Daisuke_Ishiwatari",,"Hidehiko Sakamura","Daisuke Ishiwatari
+Norichika Sato","Daisuke Ishiwatari
+Takeshi Yamanaka
+Yoshito Shoudai","http://dbpedia.org/resource/Daisuke_Ishiwatari","http://dbpedia.org/resource/Fighting_game","http://dbpedia.org/resource/Arc_System_Works",2014-02-20,84
+"http://dbpedia.org/resource/Guilty_Gear_Xrd","http://dbpedia.org/resource/Daisuke_Ishiwatari",,"Hidehiko Sakamura","Daisuke Ishiwatari
+Norichika Sato","Daisuke Ishiwatari
+Takeshi Yamanaka
+Yoshito Shoudai","http://dbpedia.org/resource/Daisuke_Ishiwatari","http://dbpedia.org/resource/Fighting_game","http://dbpedia.org/resource/Arc_System_Works",2015-08-25,84
+"http://dbpedia.org/resource/Guilty_Gear_Xrd","http://dbpedia.org/resource/Daisuke_Ishiwatari",,"Hidehiko Sakamura","Daisuke Ishiwatari
+Norichika Sato","Daisuke Ishiwatari
+Takeshi Yamanaka
+Yoshito Shoudai","http://dbpedia.org/resource/Daisuke_Ishiwatari","http://dbpedia.org/resource/Fighting_game","http://dbpedia.org/resource/Arc_System_Works",2015-12-09,84
+"http://dbpedia.org/resource/Guilty_Gear_Xrd","http://dbpedia.org/resource/Daisuke_Ishiwatari",,"Hidehiko Sakamura","Daisuke Ishiwatari
+Norichika Sato","Daisuke Ishiwatari
+Takeshi Yamanaka
+Yoshito Shoudai","http://dbpedia.org/resource/Daisuke_Ishiwatari","http://dbpedia.org/resource/Fighting_game","http://dbpedia.org/resource/Arc_System_Works",2016-12-14,84
 "http://dbpedia.org/resource/Guitar_Hero_Live",,,,,,,"http://dbpedia.org/resource/Rhythm_game","http://dbpedia.org/resource/FreeStyleGames",2015-10-20,80
 "http://dbpedia.org/resource/Guitar_Hero_Live",,,,,,,"http://dbpedia.org/resource/Rhythm_game","http://dbpedia.org/resource/FreeStyleGames",2015-10-20,81
 "http://dbpedia.org/resource/Guitar_Hero_Live",,,,,,,"http://dbpedia.org/resource/Rhythm_game","http://dbpedia.org/resource/FreeStyleGames",2015-10-20,84

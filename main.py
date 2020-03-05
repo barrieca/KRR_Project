@@ -11,6 +11,7 @@ def main():
 
     generator.create_triples_from_csv(csv_files, 'data/triples.txt')
 
+    generator.generate_list_of_game_names('data/instance_triples.txt', 'data/game_list.csv')
 
 if __name__ == "__main__":
     main()
