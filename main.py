@@ -20,8 +20,8 @@ def main():
     generator.generate_list_of_game_names('data/instance_triples.txt', 'data/game_list.csv')
 
     # Convert the triples text files to krf files
-    generator.generate_triples_krf('data/triples.txt', 'knowledge/triples.krf')
-    generator.generate_triples_krf('data/instance_triples.txt', 'knowledge/instance_triples.krf')
+    generator.generate_triples_krf('data/triples.txt', 'knowledge/Video_Game_Triples.krf')
+    generator.generate_triples_krf('data/instance_triples.txt', 'knowledge/Video_Game_Instance_Triples.krf')
 
 if __name__ == "__main__":
     main()
