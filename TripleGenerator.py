@@ -1,4 +1,6 @@
 import pandas as pd
+import unidecode # pip install Unidecode
+import csv
 
 class TripleGenerator:
     def __init__(self):
@@ -242,3 +244,30 @@ class TripleGenerator:
         print("Converted csv to triples. Results stored in " + output_path)
 
         return
+
+    def clean_csv(self, path_to_csv):
+        '''
+        Cleans the csv. Currently removes accented characters.
+        :param path_to_csv: File path to the csv to clean.
+        :return: None
+        '''
+        # Open the file
+        f = open(path_to_csv, 'r+')
+        s = f.read()
+
+        # Perform the cleaning
+        s = self.remove_accented_characters(s)
+
+        # Overwrite the file with the new string
+        f.seek(0)
+        f.truncate()
+        f.write(s)
+        f.close()
+
+    def remove_accented_characters(self, string):
+        '''
+        Deaccents any specials characters in the given string.
+        :param string: A string to deaccent.
+        :return: The deaccented string.
+        '''
+        return unidecode.unidecode(string)

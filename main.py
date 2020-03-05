@@ -6,6 +6,9 @@ def main():
 
     csv_files = ['data/ps4_games_1.csv','data/ps4_games_2.csv','data/ps4_games_3.csv','data/ps4_games_4.csv']
 
+    for csv in csv_files:
+        generator.clean_csv(csv)
+
     generator.create_triples_from_csv(csv_files, 'data/triples.txt')
 
 
