@@ -23,5 +23,7 @@ def main():
     generator.generate_triples_krf('data/triples.txt', 'knowledge/Video_Game_Triples.krf')
     generator.generate_triples_krf('data/instance_triples.txt', 'knowledge/Video_Game_Instance_Triples.krf')
 
+    # print(generator.extract_entities_from_comma_list('Russell_Brower,_Derek_Duke,_Glenn_Stafford,_Joseph_Lawrence,_Neal_Acree,_Laurence_Juber_&_Edo_Guidotti'))
+
 if __name__ == "__main__":
     main()

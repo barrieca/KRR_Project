@@ -125,28 +125,44 @@ class TripleGenerator:
             triples.append(('isa', n, 'VideoGame'))
 
         for d in row.director:
-            triples.append(('director', row.g[0], d))
+            sub_entities = self.__extract_entities_from_comma_list(d)
+            for se in sub_entities:
+                triples.append(('director', row.g[0], se))
 
         for p in row.programmer:
-            triples.append(('programmer', row.g[0], p))
+            sub_entities = self.__extract_entities_from_comma_list(p)
+            for se in sub_entities:
+                triples.append(('programmer', row.g[0], se))
 
         for a in row.artist:
-            triples.append(('artist', row.g[0], a))
+            sub_entities = self.__extract_entities_from_comma_list(a)
+            for se in sub_entities:
+                triples.append(('artist', row.g[0], se))
 
         for c in row.composer:
-            triples.append(('composer', row.g[0], c))
+            sub_entities = self.__extract_entities_from_comma_list(c)
+            for se in sub_entities:
+                triples.append(('composer', row.g[0], se))
 
         for w in row.writer:
-            triples.append(('writer', row.g[0], w))
+            sub_entities = self.__extract_entities_from_comma_list(w)
+            for se in sub_entities:
+                triples.append(('writer', row.g[0], se))
 
         for d in row.designer:
-            triples.append(('designer', row.g[0], d))
+            sub_entities = self.__extract_entities_from_comma_list(d)
+            for se in sub_entities:
+                triples.append(('designer', row.g[0], se))
 
         for g in row.genre:
-            triples.append(('genre', row.g[0], g))
+            sub_entities = self.__extract_entities_from_comma_list(g)
+            for se in sub_entities:
+                triples.append(('genre', row.g[0], se))
 
         for d in row.developer:
-            triples.append(('developmentStudio', row.g[0], d))
+            sub_entities = self.__extract_entities_from_comma_list(d)
+            for se in sub_entities:
+                triples.append(('developmentStudio', row.g[0], se))
 
         # Add the most recent release year for the game
         most_recent_release_year = self.__get_recent_release_year(row.release_date)
@@ -159,6 +175,23 @@ class TripleGenerator:
             triples.append(('score', row.g[0], str(highest_score)))
 
         return triples
+
+    def __extract_entities_from_comma_list(self, s):
+        '''
+        Extracts the individual entities in the given string.
+        :param s: A string containing entities separated by commas or other special characters.
+        :return: List of entities in the string
+        '''
+        initial_entities = s.split(',')
+
+        entities = []
+        for e in initial_entities:
+            entities.extend(e.split('&'))
+
+        entities = [e.strip('_') for e in entities]
+        entities = [e for e in entities if e != '']
+
+        return entities
 
     def __get_highest_review_score(self, row_scores):
         '''
@@ -225,6 +258,9 @@ class TripleGenerator:
         for col in columns:
             df[col] = df[col].str.strip()
             df[col] = df[col].str.replace(' ', '_')
+
+        # 3. Convert any game names that have commas in them to have an underscore instead
+        df['g'] = df['g'].str.replace(',', '')
 
         return df
 
