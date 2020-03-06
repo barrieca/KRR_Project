@@ -441,12 +441,20 @@ class TripleGenerator:
         return
 
     def generate_case_library_krf(self, path_to_output_file, path_to_games='data/game_list.csv'):
+        '''
+        Creates the case library needed for the performing analogical reasoning in Companions.
+        :param path_to_output_file: Path to the output file.
+        :param path_to_games: The list of games with which to generate the case library.
+        :return: None
+        '''
         fw = open(path_to_output_file, 'w+')
         r = 0
         with open(path_to_games) as f:
+            fw.write('(isa VideoGameCaseLibrary CaseLibrary)\n\n')
+
             for row in f:
                 if r == 0:
                     r += 1
                 else:
-                    fw.write('(caseLibraryContains videoGameCaseLibrary '+row.split()[0][:-1]+')\n')
-        fw.close
+                    fw.write('(caseLibraryContains VideoGameCaseLibrary '+row.split()[0][:-1]+')\n')
+        fw.close()
