@@ -1,3 +1,5 @@
+(in-microtheory VideoGamesMt)
+
 (isa VideoGameCaseLibrary CaseLibrary)
 
 (caseLibraryContains VideoGameCaseLibrary Red_Ash:_The_Indelible_Legend)
