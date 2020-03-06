@@ -451,6 +451,7 @@ class TripleGenerator:
         r = 0
         with open(path_to_games) as f:
             fw.write('(isa VideoGameCaseLibrary CaseLibrary)\n\n')
+            fw.write('(in-microtheory VideoGamesMt)')
 
             for row in f:
                 if r == 0:
