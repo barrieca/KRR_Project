@@ -439,3 +439,14 @@ class TripleGenerator:
         print('Finished converting .txt to .krf')
 
         return
+
+    def generate_case_library_krf(self, path_to_output_file, path_to_games='data/game_list.csv'):
+        fw = open(path_to_output_file, 'w+')
+        r = 0
+        with open(path_to_games) as f:
+            for row in f:
+                if r == 0:
+                    r += 1
+                else:
+                    fw.write('(caseLibraryContains videoGameCaseLibrary '+row.split()[0][:-1]+')\n')
+        fw.close
