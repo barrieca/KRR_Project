@@ -23,5 +23,7 @@ def main():
     generator.generate_triples_krf('data/triples.txt', 'knowledge/Video_Game_Triples.krf')
     generator.generate_triples_krf('data/instance_triples.txt', 'knowledge/Video_Game_Instance_Triples.krf')
 
+    generator.generate_case_library_krf('knowledge/Video_Game_Case_Library.krf')
+
 if __name__ == "__main__":
     main()
