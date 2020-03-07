@@ -56,7 +56,7 @@ class TripleGenerator:
             elif tup[0] == "developmentStudio":
                 developer_set.add(tup[2])
                 person_set.add(tup[2])
-            elif tup[2] == "VideoGame":
+            elif len(tup) > 2 and tup[2] == "VideoGame":
                 game_set.add(tup[1])
 
         # Generate the triples instantiating the entities
@@ -121,8 +121,8 @@ class TripleGenerator:
 
         triples = []
 
-        for n in row.g:
-            triples.append(('isa', n, 'VideoGame'))
+        triples.append(('in-microtheory', row.g[0] + 'Mt'))
+        triples.append(('isa', row.g[0], 'VideoGame'))
 
         for d in row.director:
             sub_entities = self.__extract_entities_from_comma_list(d)
@@ -261,6 +261,8 @@ class TripleGenerator:
 
         # 3. Convert any game names that have commas in them to have an underscore instead
         df['g'] = df['g'].str.replace(',', '')
+        df['g'] = df['g'].str.replace(':', '')
+        df['g'] = df['g'].str.replace(';', '_')
 
         return df
 
@@ -430,7 +432,10 @@ class TripleGenerator:
         for line in list_of_lines:
             tup = eval(line)
             try:
-                out_f.write('(' + tup[0] + ' '+ tup[1] + ' ' + tup[2] + ')\n')
+                if len(tup) == 3:
+                    out_f.write('(' + tup[0] + ' '+ tup[1] + ' ' + tup[2] + ')\n')
+                elif len(tup) == 2:
+                    out_f.write('(' + tup[0] + ' ' + tup[1] + ')\n')
             except UnicodeEncodeError:
                 print(line)
 
@@ -456,5 +461,5 @@ class TripleGenerator:
                 if r == 0:
                     r += 1
                 else:
-                    fw.write('(caseLibraryContains VideoGameCaseLibrary '+row.split()[0][:-1]+')\n')
+                    fw.write('(caseLibraryContains VideoGameCaseLibrary '+row.split()[0][:-1]+'Mt)\n')
         fw.close()
