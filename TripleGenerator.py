@@ -1,6 +1,7 @@
 import pandas as pd
 import unidecode # pip install Unidecode
 import re
+import os
 
 class TripleGenerator:
     def __init__(self):
@@ -30,6 +31,7 @@ class TripleGenerator:
         designer_set = set()
         game_set = set()
         developer_set = set()
+        video_game_system_set = set()
 
         for line in list_of_lines:
             tup = eval(line)
@@ -56,7 +58,9 @@ class TripleGenerator:
             elif tup[0] == "developmentStudio":
                 developer_set.add(tup[2])
                 person_set.add(tup[2])
-            elif tup[2] == "VideoGame":
+            elif tup[0] == "videoGameSystem":
+                video_game_system_set.add(tup[2])
+            elif len(tup) > 2 and tup[2] == "VideoGame":
                 game_set.add(tup[1])
 
         # Generate the triples instantiating the entities
@@ -110,6 +114,11 @@ class TripleGenerator:
                 fw.write(str(('isa', p, 'DevelopmentStudio')) + '\n')
             except UnicodeEncodeError:
                 print(p)
+        for p in video_game_system_set:
+            try:
+                fw.write(str(('isa', p, 'VideoGameSystem')) + '\n')
+            except UnicodeEncodeError:
+                print(p)
         fw.close()
 
     def __convert_row_to_triples(self, row):
@@ -121,32 +130,48 @@ class TripleGenerator:
 
         triples = []
 
-        for n in row.g:
-            triples.append(('isa', n, 'VideoGame'))
+        triples.append(('in-microtheory', row.g[0] + 'Mt'))
+        triples.append(('isa', row.g[0], 'VideoGame'))
 
         for d in row.director:
-            triples.append(('director', row.g[0], d))
+            sub_entities = self.__extract_entities_from_comma_list(d)
+            for se in sub_entities:
+                triples.append(('director', row.g[0], se))
 
         for p in row.programmer:
-            triples.append(('programmer', row.g[0], p))
+            sub_entities = self.__extract_entities_from_comma_list(p)
+            for se in sub_entities:
+                triples.append(('programmer', row.g[0], se))
 
         for a in row.artist:
-            triples.append(('artist', row.g[0], a))
+            sub_entities = self.__extract_entities_from_comma_list(a)
+            for se in sub_entities:
+                triples.append(('artist', row.g[0], se))
 
         for c in row.composer:
-            triples.append(('composer', row.g[0], c))
+            sub_entities = self.__extract_entities_from_comma_list(c)
+            for se in sub_entities:
+                triples.append(('composer', row.g[0], se))
 
         for w in row.writer:
-            triples.append(('writer', row.g[0], w))
+            sub_entities = self.__extract_entities_from_comma_list(w)
+            for se in sub_entities:
+                triples.append(('writer', row.g[0], se))
 
         for d in row.designer:
-            triples.append(('designer', row.g[0], d))
+            sub_entities = self.__extract_entities_from_comma_list(d)
+            for se in sub_entities:
+                triples.append(('designer', row.g[0], se))
 
         for g in row.genre:
-            triples.append(('genre', row.g[0], g))
+            sub_entities = self.__extract_entities_from_comma_list(g)
+            for se in sub_entities:
+                triples.append(('genre', row.g[0], se))
 
         for d in row.developer:
-            triples.append(('developmentStudio', row.g[0], d))
+            sub_entities = self.__extract_entities_from_comma_list(d)
+            for se in sub_entities:
+                triples.append(('developmentStudio', row.g[0], se))
 
         # Add the most recent release year for the game
         most_recent_release_year = self.__get_recent_release_year(row.release_date)
@@ -158,7 +183,29 @@ class TripleGenerator:
         if highest_score is not None:
             triples.append(('score', row.g[0], str(highest_score)))
 
+        for p in row.platform:
+            sub_entities = self.__extract_entities_from_comma_list(p)
+            for se in sub_entities:
+                triples.append(('videoGameSystem', row.g[0], se))
+
         return triples
+
+    def __extract_entities_from_comma_list(self, s):
+        '''
+        Extracts the individual entities in the given string.
+        :param s: A string containing entities separated by commas or other special characters.
+        :return: List of entities in the string
+        '''
+        initial_entities = s.split(',')
+
+        entities = []
+        for e in initial_entities:
+            entities.extend(e.split('&'))
+
+        entities = [e.strip('_') for e in entities]
+        entities = [e for e in entities if e != '']
+
+        return entities
 
     def __get_highest_review_score(self, row_scores):
         '''
@@ -220,11 +267,21 @@ class TripleGenerator:
             df[col] = df[col].str.replace('http://dbpedia.org/resource/', '')
             df[col] = df[col].str.replace('http://dbpedia.org/property/', '')
             df[col] = df[col].str.replace('http://dbpedia.org/ontology/', '')
+            df[col] = df[col].str.replace(r'[(]\d*_*\S*[)]', r'')
+            df[col] = df[col].str.strip('_')
 
         # 2b. Convert names containing spaces to have underscores (e.g. Makoto Sonoyama > Makoto_Sonoyama)
         for col in columns:
             df[col] = df[col].str.strip()
             df[col] = df[col].str.replace(' ', '_')
+
+        # 3. Convert any game names that have commas in them to have an underscore instead
+        df['g'] = df['g'].str.replace(',', '')
+        df['g'] = df['g'].str.replace(':', '')
+        df['g'] = df['g'].str.replace(';', '_')
+
+        # 4. Remove URLs from (development studios) columns
+        df['developer'].mask(df['developer'].str[0:4] == 'http', '', inplace=True)
 
         return df
 
@@ -247,7 +304,8 @@ class TripleGenerator:
             'genre': [],
             'developer': [],
             'release_date': [],
-            'score': []
+            'score': [],
+            'platform': []
         })
 
         # 1. Collect the data from the all the csv's
@@ -257,6 +315,11 @@ class TripleGenerator:
 
             # Format the dataframe values properly
             df_temp = self.__format_dataframe_strings(df_temp)
+
+            # Add platform column to the dataframe
+            platform = os.path.basename(csv)
+            platform = platform.split('_')[0]
+            df_temp['platform'] = platform
 
             # Add in the newest set of csv values into the global dataframe of games
             df_games = df_games.append(df_temp, ignore_index=True)
@@ -272,7 +335,8 @@ class TripleGenerator:
                                               'genre': ' '.join,
                                               'developer': ' '.join,
                                               'release_date': ' '.join,
-                                              'score': ' '.join}).reset_index()
+                                              'score': ' '.join,
+                                              'platform': ' '.join}).reset_index()
 
         # Remove empty values
         columns = list(df_games)
@@ -356,6 +420,7 @@ class TripleGenerator:
         # Perform the cleaning
         s = self.__remove_accented_characters(s)
         s = s.replace('*', '')
+        s = s.replace('\'', '')
 
         # Overwrite the file with the new string
         f.seek(0)
@@ -394,7 +459,10 @@ class TripleGenerator:
         for line in list_of_lines:
             tup = eval(line)
             try:
-                out_f.write('(' + tup[0] + ' '+ tup[1] + ' ' + tup[2] + ')\n')
+                if len(tup) == 3:
+                    out_f.write('(' + tup[0] + ' '+ tup[1] + ' ' + tup[2] + ')\n')
+                elif len(tup) == 2:
+                    out_f.write('(' + tup[0] + ' ' + tup[1] + ')\n')
             except UnicodeEncodeError:
                 print(line)
 
@@ -403,3 +471,23 @@ class TripleGenerator:
         print('Finished converting .txt to .krf')
 
         return
+
+    def generate_case_library_krf(self, path_to_output_file, path_to_games='data/game_list.csv'):
+        '''
+        Creates the case library needed for the performing analogical reasoning in Companions.
+        :param path_to_output_file: Path to the output file.
+        :param path_to_games: The list of games with which to generate the case library.
+        :return: None
+        '''
+        fw = open(path_to_output_file, 'w+')
+        r = 0
+        with open(path_to_games) as f:
+            fw.write('(in-microtheory VideoGamesMt)\n\n')
+            fw.write('(isa VideoGameCaseLibrary CaseLibrary)\n\n')
+
+            for row in f:
+                if r == 0:
+                    r += 1
+                else:
+                    fw.write('(caseLibraryContains VideoGameCaseLibrary '+row.split()[0][:-1]+'Mt)\n')
+        fw.close()

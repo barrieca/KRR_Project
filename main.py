@@ -6,7 +6,7 @@ def main():
     generator = tg.TripleGenerator()
 
     # Specify the csv files from which the data will be gathered
-    csv_files = ['data/ps4_games_1.csv','data/ps4_games_2.csv','data/ps4_games_3.csv','data/ps4_games_4.csv']
+    csv_files = ['data/PS4_games_1.csv','data/PS4_games_2.csv','data/PS4_games_3.csv','data/PS4_games_4.csv']
 
     # Clean the data in these csv files
     for csv in csv_files:
@@ -22,6 +22,8 @@ def main():
     # Convert the triples text files to krf files
     generator.generate_triples_krf('data/triples.txt', 'knowledge/Video_Game_Triples.krf')
     generator.generate_triples_krf('data/instance_triples.txt', 'knowledge/Video_Game_Instance_Triples.krf')
+
+    generator.generate_case_library_krf('knowledge/Video_Game_Case_Library.krf')
 
 if __name__ == "__main__":
     main()
