@@ -23,6 +23,13 @@
 (arg2Isa videoGameGenre VideoGameGenre)
 (comment videoGameGenre "(videoGameGenre ?game ?genre) says that game ?game has game genre ?genre")
 
+;;; (developmentStudio ?game ?studio)
+(isa developmentStudio Predicate)
+(arity developmentStudio 2)
+(arg1Isa developmentStudio VideoGame)
+(arg2Isa developmentStudio SoftwareVendor)
+(comment developmentStudio "(developmentStudio ?game ?studio) says that game ?game was released by SoftwareVendor ?studio")
+
 ;;; (programmer ?game ?person)
 (isa programmer Predicate)
 (arity programmer 2)

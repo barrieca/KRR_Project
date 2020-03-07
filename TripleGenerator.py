@@ -66,7 +66,7 @@ class TripleGenerator:
         # Generate the triples instantiating the entities
         for g in genre_set:
             try:
-                fw.write(str(('isa', g, 'videoGameGenre')) + '\n')
+                fw.write(str(('isa', g, 'VideoGameGenre')) + '\n')
             except UnicodeEncodeError:
                 print(g)
         for p in programmer_set:
