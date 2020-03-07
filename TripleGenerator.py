@@ -35,7 +35,7 @@ class TripleGenerator:
 
         for line in list_of_lines:
             tup = eval(line)
-            if tup[0] == "genre":
+            if tup[0] == "videoGameGenre":
                 genre_set.add(tup[2])
             elif tup[0] == "programmer":
                 programmer_set.add(tup[2])
@@ -66,7 +66,7 @@ class TripleGenerator:
         # Generate the triples instantiating the entities
         for g in genre_set:
             try:
-                fw.write(str(('isa', g, 'GameGenre')) + '\n')
+                fw.write(str(('isa', g, 'videoGameGenre')) + '\n')
             except UnicodeEncodeError:
                 print(g)
         for p in programmer_set:
@@ -166,7 +166,7 @@ class TripleGenerator:
         for g in row.genre:
             sub_entities = self.__extract_entities_from_comma_list(g)
             for se in sub_entities:
-                triples.append(('genre', row.g[0], se))
+                triples.append(('videoGameGenre', row.g[0], se))
 
         for d in row.developer:
             sub_entities = self.__extract_entities_from_comma_list(d)
