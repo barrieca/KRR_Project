@@ -264,6 +264,9 @@ class TripleGenerator:
         df['g'] = df['g'].str.replace(':', '')
         df['g'] = df['g'].str.replace(';', '_')
 
+        # 4. Remove URLs from (development studios) columns
+        df['developer'].mask(df['developer'].str[0:4] == 'http', '', inplace=True)
+
         return df
 
     def __create_dataframe_from_csv(self, input_paths):
