@@ -7,23 +7,23 @@
 (<== (commonProgrammer ?game1 ?game2 ?programmer)
     (programmer ?game1 ?programmer)
     (programmer ?game2 ?programmer))
-    
+
 (<== (commonArtist ?game1 ?game2 ?artist)
     (gameArtist ?game1 ?artist)
     (gameArtist ?game2 ?artist))
-    
+
 (<== (commonComposer ?game1 ?game2 ?composer)
     (gameComposer ?game1 ?composer)
     (gameComposer ?game2 ?composer))
-    
+
 (<== (commonWriter ?game1 ?game2 ?writer)
     (gameWriter ?game1 ?writer)
     (gameWriter ?game2 ?writer))
-    
+
 (<== (commonDirector ?game1 ?game2 ?director)
     (gameDirector ?game1 ?director)
     (gameDirector ?game2 ?director))
-    
+
 (<== (commonDesigner ?game1 ?game2 ?designer)
     (gameDesigner ?game1 ?designer)
     (gameDesigner ?game2 ?designer))
@@ -63,6 +63,34 @@
     (?rel1 ?game1 ?game ?attribute1)
     (?rel2 ?game2 ?game ?attribute2)
     (?rel3 ?game3 ?game ?attribute3))
-    
+
 (<== (favoredType ?game1 ?game2 ?game3)
     (sharedAttributes))
+
+
+;;; Getting the game attributes
+(<== (get_attributes ?game ?genre)
+    (gameGenre ?game ?genre))
+
+(<== (get_attributes ?game ?programmer)
+    (programmer ?game ?programmer))
+
+(<== (get_attributes ?game ?artist)
+    (gameArtist ?game ?artist))
+
+(<== (get_attributes ?game ?composer)
+    (gameComposer ?game ?composer))
+
+(<== (get_attributes ?game ?writer)
+    (gameWriter ?game ?writer))
+
+(<== (get_attributes ?game ?director)
+    (gameDirector ?game ?director))
+
+(<== (get_attributes ?game ?designer)
+    (gameDesigner ?game ?designer))
+
+(<== (get_attributes ?game ?year)
+    (releaseYear ?game ?year))
+
+

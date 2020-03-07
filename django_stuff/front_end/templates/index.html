@@ -5,28 +5,30 @@
 </head>
 <body>
     <h3>Select Three Games</h3>
-    <form action="{% url 'results' %}" method="post">
-    {% csrf_token %}
-        <input list="games" name="game" id="game1">
-        <datalist id="games">
-            <option value="FIFA">
-            <option value="Uncharted">
-            <option value="Wolfenstein">
-        </datalist><br />
-        <input list="games" name="game" id="game2">
-        <datalist id="games">
-            <option value="FIFA">
-            <option value="Uncharted">
-            <option value="Wolfenstein">
-        </datalist><br />
-        <input list="games" name="game" id="game3">
-        <datalist id="games">
-            <option value="FIFA">
-            <option value="Uncharted">
-            <option value="Wolfenstein">
-        </datalist><br />
-        <input type="text" name="subclass"><br />
-        <input type="submit" value="GO">
-    </form>
+    {% if not games.empty %}
+        <form action="{% url 'results' %}" method="post">
+        {% csrf_token %}
+            <input list="games" name="game1" id="game1">
+            <datalist id="games">
+            {% for game in games.keys %}
+                <option value="{{ game }}">
+            {% endfor %}
+            </datalist><br />
+            <input list="games" name="game2" id="game2">
+            <datalist id="games">
+            {% for game in games.keys %}
+                <option value="{{ game }}">
+            {% endfor %}
+            </datalist><br />
+            <input list="games" name="game3" id="game3">
+            <datalist id="games">
+            {% for game in games.keys %}
+                <option value="{{ game }}">
+            {% endfor %}
+            </datalist><br />
+            <!--<input type="text" name="subclass"><br />-->
+            <input type="submit" value="GO">
+        </form>
+    {% endif %}
 </body>
 </html>
