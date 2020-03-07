@@ -1,6 +1,7 @@
 import pandas as pd
 import unidecode # pip install Unidecode
 import re
+import os
 
 class TripleGenerator:
     def __init__(self):
@@ -30,6 +31,7 @@ class TripleGenerator:
         designer_set = set()
         game_set = set()
         developer_set = set()
+        video_game_system_set = set()
 
         for line in list_of_lines:
             tup = eval(line)
@@ -56,6 +58,8 @@ class TripleGenerator:
             elif tup[0] == "developmentStudio":
                 developer_set.add(tup[2])
                 person_set.add(tup[2])
+            elif tup[0] == "videoGameSystem":
+                video_game_system_set.add(tup[2])
             elif len(tup) > 2 and tup[2] == "VideoGame":
                 game_set.add(tup[1])
 
@@ -108,6 +112,11 @@ class TripleGenerator:
         for p in developer_set:
             try:
                 fw.write(str(('isa', p, 'DevelopmentStudio')) + '\n')
+            except UnicodeEncodeError:
+                print(p)
+        for p in video_game_system_set:
+            try:
+                fw.write(str(('isa', p, 'VideoGameSystem')) + '\n')
             except UnicodeEncodeError:
                 print(p)
         fw.close()
@@ -173,6 +182,11 @@ class TripleGenerator:
         highest_score = self.__get_highest_review_score(row.score)
         if highest_score is not None:
             triples.append(('score', row.g[0], str(highest_score)))
+
+        for p in row.platform:
+            sub_entities = self.__extract_entities_from_comma_list(p)
+            for se in sub_entities:
+                triples.append(('videoGameSystem', row.g[0], se))
 
         return triples
 
@@ -253,6 +267,8 @@ class TripleGenerator:
             df[col] = df[col].str.replace('http://dbpedia.org/resource/', '')
             df[col] = df[col].str.replace('http://dbpedia.org/property/', '')
             df[col] = df[col].str.replace('http://dbpedia.org/ontology/', '')
+            df[col] = df[col].str.replace(r'[(]\d*_*\S*[)]', r'')
+            df[col] = df[col].str.strip('_')
 
         # 2b. Convert names containing spaces to have underscores (e.g. Makoto Sonoyama > Makoto_Sonoyama)
         for col in columns:
@@ -288,7 +304,8 @@ class TripleGenerator:
             'genre': [],
             'developer': [],
             'release_date': [],
-            'score': []
+            'score': [],
+            'platform': []
         })
 
         # 1. Collect the data from the all the csv's
@@ -298,6 +315,11 @@ class TripleGenerator:
 
             # Format the dataframe values properly
             df_temp = self.__format_dataframe_strings(df_temp)
+
+            # Add platform column to the dataframe
+            platform = os.path.basename(csv)
+            platform = platform.split('_')[0]
+            df_temp['platform'] = platform
 
             # Add in the newest set of csv values into the global dataframe of games
             df_games = df_games.append(df_temp, ignore_index=True)
@@ -313,7 +335,8 @@ class TripleGenerator:
                                               'genre': ' '.join,
                                               'developer': ' '.join,
                                               'release_date': ' '.join,
-                                              'score': ' '.join}).reset_index()
+                                              'score': ' '.join,
+                                              'platform': ' '.join}).reset_index()
 
         # Remove empty values
         columns = list(df_games)
@@ -397,6 +420,7 @@ class TripleGenerator:
         # Perform the cleaning
         s = self.__remove_accented_characters(s)
         s = s.replace('*', '')
+        s = s.replace('\'', '')
 
         # Overwrite the file with the new string
         f.seek(0)
