@@ -1,34 +1,5 @@
 (in-microtheory VideoGamesMt)
 
-(comment VideoGame "A specialization of Game. All instances of VideoGame are specifications of the game genre, people involved in the making of the game, time of release, etc.")
-(genls VideoGame Game)
-(isa VideoGame ObjectType)
-(isa VideoGame TemporalStuffType)
-
-(comment VideoGameGenre "A specialization of ConceptualWorkTypeByGenre. All instances of VideoGameGenre are of the same genre.")
-(genls VideoGameGenre ConceptualWorkTypeByGenre)
-(isa FacetingCollectingType)
-
-;;; (videoGameSystem ?game ?platform)
-(isa videoGameSystem Predicate)
-(arity videoGameSystem 2)
-(arg1Isa videoGameSystem VideoGame)
-(arg2Isa videoGameSystem VideoGameSystem)
-(comment videoGameSystem "(videoGameSystem ?game ?platform) says that game ?game was released on VideoGameSystem ?platform")
-
-;;; (developmentStudio ?game ?studio)
-(isa developmentStudio Predicate)
-(arity developmentStudio 2)
-(arg1Isa developmentStudio VideoGame)
-(arg2Isa developmentStudio SoftwareVendor)
-(comment developmentStudio "(developmentStudio ?game ?studio) says that game ?game was released by SoftwareVendor ?studio")
-
-(isa gameGenre Predicate)
-(arity gameGenre 2)
-(arg1Isa gameGenre VideoGame)
-(arg2Isa gameGenre VideoGameGenre)
-(comment gameGenre "(gameGenre ?game ?genre) says that game ?game has game genre ?genre")
-
 (<== (commonGenre ?game1 ?game2 ?genre)
     (gameGenre ?game1 ?genre)
     (gameGenre ?game2 ?genre))

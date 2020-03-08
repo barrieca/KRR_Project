@@ -23,6 +23,27 @@
 (arg2Isa videoGameGenre VideoGameGenre)
 (comment videoGameGenre "(videoGameGenre ?game ?genre) says that game ?game has game genre ?genre")
 
+;;; (score ?game ?score)
+(isa score Predicate)
+(arity score 2)
+(arg1Isa score VideoGame)
+(arg2Isa score Integer)
+(comment score "(score ?game ?score) says that game ?game had game score ?score")
+
+;;; (releaseYear ?game ?year)
+(isa releaseYear Predicate)
+(arity releaseYear 2)
+(arg1Isa releaseYear VideoGame)
+(arg2Isa releaseYear Integer)
+(comment releaseYear "(releaseYear ?game ?year) says that game ?game was released in year ?year")
+
+;;; (developmentStudio ?game ?studio)
+(isa developmentStudio Predicate)
+(arity developmentStudio 2)
+(arg1Isa developmentStudio VideoGame)
+(arg2Isa developmentStudio SoftwareVendor)
+(comment developmentStudio "(developmentStudio ?game ?studio) says that game ?game was released by SoftwareVendor ?studio")
+
 ;;; (programmer ?game ?person)
 (isa programmer Predicate)
 (arity programmer 2)
