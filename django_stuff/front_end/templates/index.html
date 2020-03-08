@@ -10,23 +10,49 @@
         {% csrf_token %}
             <input list="games" name="game1" id="game1">
             <datalist id="games">
-            {% for game in games.keys %}
+            {% for game in games %}
                 <option value="{{ game }}">
             {% endfor %}
-            </datalist><br />
+            </datalist>
+            <select type="select" name="attribute1" multiple>
+                <option value="artist">Art</option>
+                <option value="composer">Music</option>
+                <option value="designer,director,developmentStudio">Overall Game</option>
+                <option value="programmer">Gameplay</option>
+                <option value="videoGameGenre">Genre</option>
+                <option value="writer"></option>
+            </select>
+            <br />
             <input list="games" name="game2" id="game2">
             <datalist id="games">
-            {% for game in games.keys %}
+            {% for game in games %}
                 <option value="{{ game }}">
             {% endfor %}
-            </datalist><br />
+            </datalist>
+            <select type="select" name="attribute2" multiple>
+                <option value="artist">Art</option>
+                <option value="composer">Music</option>
+                <option value="designer director developmentStudio">Overall Game</option>
+                <option value="programmer">Gameplay</option>
+                <option value="videoGameGenre">Genre</option>
+                <option value="writer"></option>
+            </select>
+            <br />
             <input list="games" name="game3" id="game3">
             <datalist id="games">
-            {% for game in games.keys %}
+            {% for game in games %}
                 <option value="{{ game }}">
             {% endfor %}
-            </datalist><br />
-            <!--<input type="text" name="subclass"><br />-->
+            </datalist>
+            <select type="select" name="attribute3" multiple>
+                <option value="artist">Art</option>
+                <option value="composer">Music</option>
+                <option value="designer,director,developmentStudio">Overall Game</option>
+                <option value="programmer">Gameplay</option>
+                <option value="videoGameGenre">Genre</option>
+                <option value="writer"></option>
+            </select>
+            <br />
             <input type="submit" value="GO">
         </form>
     {% endif %}

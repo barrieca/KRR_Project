@@ -9,7 +9,7 @@
     {% if results %}
         <ul>
         {% for result in results %}
-            <li>{{ result }}</li>
+            <li>{{ result['name'] }}</li>
         {% endfor %}
         </ul>
     {% endif %}
