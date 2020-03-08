@@ -57,6 +57,7 @@ def main():
         'videoGameGenre': ('Action_role-playing_game',),
     }
     print(find_similar_games({
+        'composer': 1,
         'artist': 1,
         'designer': 1,
         'director': 1,
@@ -81,7 +82,8 @@ def find_similar_games(similarity_dict, list_of_player_games, list_of_candidate_
     def dew_it(list_of_player_games, list_of_candidate_game_lists):
         '''
         Prints 'Dew it.' and does it.
-        :param list_of_player_games: list_of_player_games: list of games user said they liked
+        :param list_of_player_games: list_of_player_games: list of tuples containing the dictionary of a game the user
+            said they liked and one or more attributes for aspects the user liked about that game
         :param list_of_candidate_game_lists: list_of_candidate_game_lists: list of list of candidates provided by
             analogy function from Companions
         :return: list of three games most similar to player_games, with their corresponding score dictionaries
@@ -127,6 +129,7 @@ def find_similar_games(similarity_dict, list_of_player_games, list_of_candidate_
         :return: returns a similarity score and its corresponding score dictionary
         '''
         candidate_game_score = {
+            'composer': 0,
             'artist': 0,
             'designer': 0,
             'director': 0,
