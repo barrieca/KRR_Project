@@ -1,0 +1,21 @@
+.radio {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+
+.radio:checked + .option_label {
+    background-color: darkgray;
+    color: white;
+}
+
+.radio:focus + .option_label {
+    background-color: lightgray;
+}
+
+.option_label {
+    display: inline-block;
+    background-color: white;
+    padding: 10px;
+    border: 2px solid black;
+}

@@ -1,17 +1,28 @@
+{% load static %}
 
 <html>
 <head>
-   <title>Game Recommender</title>
-  <!-- <link rel="stylesheet" type="text/css" href="style.css"/>-->
+    <title>Game Recommender</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
 </head>
 <body>
-    <h3>results</h3>
+    <h3>Recommendations</h3>
     {% if results %}
-        <ul>
+        <form action="{% url 'index' %}" method="post">
+        {% csrf_token %}
         {% for result in results %}
-            <li>{{ result }}</li>
+            {{ result }}
+            <input type="radio" id="radio{{forloop.counter}}bad" name="radio{{ forloop.counter }}" value="bad" class="radio">
+            <label for="radio{{forloop.counter}}bad" class="option_label">&#128577</label>
+            <input type="radio" id="radio{{forloop.counter}}neutral" name="radio{{ forloop.counter }}" value="neutral" class="radio">
+            <label for="radio{{forloop.counter}}neutral" class="option_label">&#128528</label>
+            <input type="radio" id="radio{{forloop.counter}}good" name="radio{{ forloop.counter }}" value="good" class="radio">
+            <label for="radio{{forloop.counter}}good" class="option_label">&#128578</label>
+            <br /><br /><br />
         {% endfor %}
-        </ul>
+            <br />
+            <input type="submit" value="Submit Feedback">
+        </form>
     {% endif %}
 </body>
 </html>
