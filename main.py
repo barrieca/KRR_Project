@@ -6,13 +6,13 @@ def main():
     generator = tg.TripleGenerator()
 
     # Specify the csv files from which the data will be gathered
-    csv_files = ['data/PS4_games_1.csv','data/PS4_games_2.csv','data/PS4_games_3.csv','data/PS4_games_4.csv',
-                 'data/PC_games_2000-2004_1.csv', 'data/PC_games_2005-2008_1.csv', 'data/PC_games_2005-2008_2.csv', 'data/PC_games_2009-2012_1.csv',
-                 'data/PC_games_2009-2012_2.csv', 'data/PC_games_2009-2012_3.csv', 'data/PC_games_2013-2016_1.csv', 'data/PC_games_2013-2016_2.csv',
-                 'data/PC_games_2013-2016_3.csv', 'data/PC_games_2017-2020_1.csv', 'data/PC_games_no_date_1.csv', 'data/PC_games_no_date_2.csv',
-                 'data/PC_games_pre_2000_1.csv', 'data/PC_games_pre_2000_2.csv', 'data/SWITCH_games_1.csv', 'data/WII_U_games_1.csv',
-                 'data/XONE_games_1.csv', 'data/XONE_games_2.csv', 'data/XONE_games_3.csv', 'data/XONE_games_4.csv', 'data/XONE_games_5.csv',
-                 'data/XONE_games_6.csv', 'data/XONE_games_7.csv']
+    csv_files = ['data/PS4_games_1.csv','data/PS4_games_2.csv','data/PS4_games_3.csv','data/PS4_games_4.csv']
+                 # 'data/PC_games_2000-2004_1.csv', 'data/PC_games_2005-2008_1.csv', 'data/PC_games_2005-2008_2.csv', 'data/PC_games_2009-2012_1.csv',
+                 # 'data/PC_games_2009-2012_2.csv', 'data/PC_games_2009-2012_3.csv', 'data/PC_games_2013-2016_1.csv', 'data/PC_games_2013-2016_2.csv',
+                 # 'data/PC_games_2013-2016_3.csv', 'data/PC_games_2017-2020_1.csv', 'data/PC_games_no_date_1.csv', 'data/PC_games_no_date_2.csv',
+                 # 'data/PC_games_pre_2000_1.csv', 'data/PC_games_pre_2000_2.csv', 'data/SWITCH_games_1.csv', 'data/WII_U_games_1.csv',
+                 # 'data/XONE_games_1.csv', 'data/XONE_games_2.csv', 'data/XONE_games_3.csv', 'data/XONE_games_4.csv', 'data/XONE_games_5.csv',
+                 # 'data/XONE_games_6.csv', 'data/XONE_games_7.csv']
 
     # Clean the data in these csv files
     for csv in csv_files:
