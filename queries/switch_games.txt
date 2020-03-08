@@ -1,0 +1,25 @@
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX dbp: <http://dbpedia.org/property/>
+PREFIX dbc: <http://dbpedia.org/resource/Category:>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT DISTINCT ?g ?director ?programmer ?artist ?composer ?writer ?designer ?genre ?developer ?release_date ?score ?platform WHERE {
+
+    ?g rdf:type dbo:VideoGame .
+    ?g rdf:type dbo:Software .
+    ?g dbo:computingPlatform|dct:subject ?platform
+    FILTER (?platform in (dbr:Nintendo_Switch, dbc:Nintendo_Switch_games) )
+
+    OPTIONAL { ?g dbo:director|dbp:director ?director }
+    OPTIONAL { ?g dbo:programmer|dbp:programmer ?programmer }
+    OPTIONAL { ?g dbo:artist|dbp:artist|dbo:gameArtist|dbp:gameArtist ?artist }
+    OPTIONAL { ?g dbo:composer|dbp:composer ?composer }
+    OPTIONAL { ?g dbo:writer|dbp:writer ?writer }
+    OPTIONAL { ?g dbo:designer|dbp:designer ?designer }
+    OPTIONAL { ?g dbo:genre|dbp:genre ?genre }
+    OPTIONAL { ?g dbo:developer|dbp:developer ?developer }
+    OPTIONAL { ?g dbo:releaseDate|dbp:releaseDate ?release_date }
+    OPTIONAL { ?g dbo:mc|dbp:mc ?score }
+}
+ORDER BY ASC(?g)
+LIMIT 10000 OFFSET 00000
