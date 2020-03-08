@@ -54,7 +54,7 @@ class GameAgent(Pythonian):
         while not self.received:
             time.sleep(0.1)
             iters += 1
-            if iters > 1000:
+            if iters > 600:
                 self.received = True
                 self.results = []
                 break
@@ -81,10 +81,11 @@ class GameAgent(Pythonian):
         for result in results:
             match_groups = re.match('\( *(\S+) +\S+ +(\S+) *\)', str(result))
             attribute = match_groups.group(1)
-            if attribute in facts_dict.keys():
-                facts_dict[attribute].append(match_groups.group(2))
-            else:
-                facts_dict[attribute] = [match_groups.group(2)]
+            if attribute != 'isa':
+                if attribute in facts_dict.keys():
+                    facts_dict[attribute].append(match_groups.group(2))
+                else:
+                    facts_dict[attribute] = [match_groups.group(2)]
         for key in facts_dict.keys():
             facts_dict[key] = tuple(facts_dict[key])
         return facts_dict
