@@ -1,0 +1,62 @@
+;;; Note: The following query was repeatedly called with updated values for the release_date filtering, as well as with updated offsets.
+;;; Query 1: Games with a release date in a specific range.
+;;;
+
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX dbp: <http://dbpedia.org/property/>
+PREFIX dbc: <http://dbpedia.org/resource/Category:>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT DISTINCT ?g ?director ?programmer ?artist ?composer ?writer ?designer ?genre ?developer ?release_date ?score ?platform WHERE {
+
+    ?g rdf:type dbo:VideoGame .
+    ?g rdf:type dbo:Software .
+    ?g dbo:computingPlatform|dct:subject ?platform
+    FILTER (?platform in (dbr:Microsoft_Windows, dbc:Windows_games) )
+    FILTER (?g not in (dbr:Tales_from_the_Borderlands, dbr:The_Walking_Dead_\(video_game\), dbr:The_Walking_Dead:_Season_Two, dbr:Life_Is_Strange, dbr:Game_of_Thrones_\(2014_video_game\), dbr:Strong_Bad\'s_Cool_Game_for_Attractive_People, dbr:Hamtaro_\(video_game_series\)) )
+    FILTER ( ?release_date > "2017-01-01"^^xsd:date && ?release_date < "2020-12-31"^^xsd:date )
+
+    OPTIONAL { ?g dbo:director|dbp:director ?director }
+    OPTIONAL { ?g dbo:programmer|dbp:programmer ?programmer }
+    OPTIONAL { ?g dbo:artist|dbp:artist|dbo:gameArtist|dbp:gameArtist ?artist }
+    OPTIONAL { ?g dbo:composer|dbp:composer ?composer }
+    OPTIONAL { ?g dbo:writer|dbp:writer ?writer }
+    OPTIONAL { ?g dbo:designer|dbp:designer ?designer }
+    OPTIONAL { ?g dbo:genre|dbp:genre ?genre }
+    OPTIONAL { ?g dbo:developer|dbp:developer ?developer }
+    ?g dbo:releaseDate|dbp:releaseDate ?release_date .
+    OPTIONAL { ?g dbo:mc|dbp:mc ?score }
+}
+ORDER BY ASC(?g)
+LIMIT 10000 OFFSET 00000
+
+;;;
+;;; Query 2: Games with no release date specified.
+;;;
+
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX dbp: <http://dbpedia.org/property/>
+PREFIX dbc: <http://dbpedia.org/resource/Category:>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT DISTINCT ?g ?director ?programmer ?artist ?composer ?writer ?designer ?genre ?developer ?release_date ?score ?platform WHERE {
+
+    ?g rdf:type dbo:VideoGame .
+    ?g rdf:type dbo:Software .
+    ?g dbo:computingPlatform|dct:subject ?platform
+    FILTER (?platform in (dbr:Microsoft_Windows, dbc:Windows_games) )
+    FILTER NOT EXISTS { ?g dbo:releaseDate|dbp:releaseDate ?release_date }
+
+    OPTIONAL { ?g dbo:director|dbp:director ?director }
+    OPTIONAL { ?g dbo:programmer|dbp:programmer ?programmer }
+    OPTIONAL { ?g dbo:artist|dbp:artist|dbo:gameArtist|dbp:gameArtist ?artist }
+    OPTIONAL { ?g dbo:composer|dbp:composer ?composer }
+    OPTIONAL { ?g dbo:writer|dbp:writer ?writer }
+    OPTIONAL { ?g dbo:designer|dbp:designer ?designer }
+    OPTIONAL { ?g dbo:genre|dbp:genre ?genre }
+    OPTIONAL { ?g dbo:developer|dbp:developer ?developer }
+    OPTIONAL { ?g dbo:releaseDate|dbp:releaseDate ?release_date }
+    OPTIONAL { ?g dbo:mc|dbp:mc ?score }
+}
+ORDER BY ASC(?g)
+LIMIT 10000 OFFSET 00000

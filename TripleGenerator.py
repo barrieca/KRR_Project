@@ -274,6 +274,8 @@ class TripleGenerator:
         for col in columns:
             df[col] = df[col].str.strip()
             df[col] = df[col].str.replace(' ', '_')
+            df[col] = df[col].str.replace('\"', '')
+            df[col] = df[col].str.replace(':', '')
 
         # 3. Convert any game names that have commas in them to have an underscore instead
         df['g'] = df['g'].str.replace(',', '')
