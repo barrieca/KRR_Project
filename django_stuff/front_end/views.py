@@ -4,18 +4,54 @@ from pythonian import game_agent
 import time
 import data_manager
 from similarity_measure import similarity_measure
+import csv
 
 logger = logging.getLogger('GameAgent')
 logger.setLevel(logging.DEBUG)
 agent = game_agent.GameAgent(host='localhost', port=9000, localPort=8950, debug=True)
 game_dict = data_manager.get_games()
+game_score_vectors = None
 #print(agent.ask_agent('session-reasoner', '(emailOfCourseInstructor CS348-Winter2019 ?email)'))
 
 def index(request):
+    global game_score_vectors
+    total_game_score_vector = {}
+    feedback_dict = {'good': 1, 'bad': -1, 'neutral': 0}
+    similarity_dict = {}
+    with open('./similarity_vector.txt') as f:
+        for line in f:
+            (key, val) = line.split()
+            similarity_dict[key] = float(val)
     try:
         feedback = [request.POST['radio1'], request.POST['radio2'], request.POST['radio3']]
+        feedback = [feedback_dict[f] for f in feedback]
     except:
         feedback = []
+    vec = 0
+    if feedback:
+        for i in range(len(feedback)):
+            if vec == 0:
+                for k, v in game_score_vectors[i][1].items():
+                    total_game_score_vector[k] = v * feedback[i]
+                    vec += 1
+            else:
+                for k, v in game_score_vectors[i][1].items():
+                    total_game_score_vector[k] += v * feedback[i]
+    if feedback:
+        for k, v in similarity_dict.items():
+            similarity_dict[k] = (v+0.01*total_game_score_vector[k])
+        factor = 1.0/sum(similarity_dict.values())
+        print('******************************************************************\n'
+              '******************************************************************\n'
+              'Printing max value\n'
+              '******************************************************************\n'
+              '******************************************************************')
+        print(factor)
+        for k, v in similarity_dict.items():
+            similarity_dict[k] = v*factor
+        with open('./similarity_vector.txt', 'w') as f:
+            for k, v in similarity_dict.items():
+                f.write(k+' '+str(v)+'\n')
     context = {
         'games': game_dict.keys(),
         'feedback': feedback,
@@ -24,10 +60,12 @@ def index(request):
 
 def results(request):
 #try:
-    original_games = [request.POST['game1'],request.POST['game2'],request.POST['game3']]
+    original_games = [request.POST['game1'], request.POST['game2'], request.POST['game3']]
 
     attributes = []
-    attributes = [request.POST.getlist('attribute1'),request.POST.getlist('attribute2'),request.POST.getlist('attribute3')]
+    attributes = [tuple(request.POST.getlist('attribute1')[0].split(',')),
+                  tuple(request.POST.getlist('attribute2')[0].split(',')),
+                  tuple(request.POST.getlist('attribute3')[0].split(','))]
 
     original_game_facts = []
     for game_num in range(3):
@@ -37,7 +75,9 @@ def results(request):
         original_game_fact_set['gameName'] = tuple([game])
         original_game_facts.append((original_game_fact_set,game_attributes))
 
-    game_sets = [agent.get_similar_games(game_dict[original_games[0]]), agent.get_similar_games(game_dict[original_games[1]]), agent.get_similar_games(game_dict[original_games[2]])]
+    game_sets = [agent.get_similar_games(game_dict[original_games[0]]),
+                 agent.get_similar_games(game_dict[original_games[1]]),
+                 agent.get_similar_games(game_dict[original_games[2]])]
     game_sets = [game_set for game_set in game_sets if len(game_set) > 0]
     game_fact_set = []
     for games in game_sets:
@@ -47,13 +87,22 @@ def results(request):
             game_facts[-1]['gameName'] = tuple([game])
         game_fact_set.append(game_facts)
 
-    game_vectors = similarity_measure.find_similar_games({ 'artist': 1, 'designer': 1, 'director': 1, 'developmentStudio': 1, 'writer': 1, 'score': 1, 'releaseYear': 1, 'videoGameGenre': 1 },original_game_facts, game_fact_set)
+    similarity_dict = {}
+    with open('./similarity_vector.txt') as f:
+        for line in f:
+            (key, val) = line.split()
+            similarity_dict[key] = float(val)
+
+    game_vectors = similarity_measure.find_similar_games(similarity_dict,
+                                                         original_game_facts, game_fact_set)
 
 #except:
-    game_facts = []
+    game_facts = [game_dict_tuple[0][0] for game_dict_tuple in game_vectors]
+    global game_score_vectors
+    game_score_vectors = [(game_dict_tuple[0][0], game_dict_tuple[1]) for game_dict_tuple in game_vectors]
 
     context = {
-        'results': original_games,
+        'results': game_facts,
     }
     return render(request, 'results.html', context)
 

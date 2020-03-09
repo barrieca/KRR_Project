@@ -65,7 +65,8 @@ def main():
         'writer': 1,
         'score': 1,
         'releaseYear': 1,
-        'videoGameGenre': 1
+        'videoGameGenre': 1,
+        'programmer': 1
     }, [(witcher,('releaseYear','videoGameGenre')), (nhl, 'writer')], [[witcher_dlc, warhammer, oxenfree, darksouls, nhl],
                         [warhammer, witcher, oxenfree, darksouls]]))
 
@@ -101,9 +102,12 @@ def find_similar_games(similarity_dict, list_of_player_games, list_of_candidate_
         :return: list of three games most similar to player_games, with their corresponding score dictionaries
         '''
         list_of_candidate_lists = []
+        if not list_of_candidate_game_lists:
+            return 0
         for i in range(len(list_of_player_games)):
-            list_of_candidate_lists.append([(candidate_game['gameName'], similarity_score(list_of_player_games[i], candidate_game))
-                                            for candidate_game in list_of_candidate_game_lists[i]])
+            if len(list_of_candidate_game_lists) > i:
+                list_of_candidate_lists.append([(candidate_game['gameName'], similarity_score(list_of_player_games[i], candidate_game))
+                                                for candidate_game in list_of_candidate_game_lists[i]])
         candidate_dict = {}
         for li in list_of_candidate_lists:
             li.sort(key=lambda x: x[1][0], reverse=True)
@@ -130,6 +134,7 @@ def find_similar_games(similarity_dict, list_of_player_games, list_of_candidate_
         '''
         candidate_game_score = {
             'composer': 0,
+            'programmer': 0,
             'artist': 0,
             'designer': 0,
             'director': 0,
@@ -140,19 +145,22 @@ def find_similar_games(similarity_dict, list_of_player_games, list_of_candidate_
             'videoGameGenre': 0
         }
         for k, v in player_game[0].items():
+            if k == 'gameName':
+                continue
+            if k == 'videoGameSystem':
+                continue
             if k in candidate_game:
-                if k == 'gameName':
-                    continue
                 if type(v[0]) == int:
                     player_value = v[0]
                     candidate_value = candidate_game[k][0]
                     if player_value > 1000:
                         candidate_game_score['releaseYear'] += similar_year(player_value, candidate_value)
-                    elif player_value <= 100:
+                    elif player_value <= 1000:
                         candidate_game_score['score'] += similar_score(player_value, candidate_value)
                 else:
                     get_possible_combinations(k, v, candidate_game[k], candidate_game_score)
         if type(player_game[1]) == tuple:
+            print(player_game)
             for attribute in player_game[1]:
                 candidate_game_score[attribute] *= 2
         return pseudo_dot_product(candidate_game_score), candidate_game_score
