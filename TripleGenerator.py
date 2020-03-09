@@ -440,7 +440,7 @@ class TripleGenerator:
         '''
         return unidecode.unidecode(string)
 
-    def generate_triples_krf(self, path_to_triples_txt, path_to_output_file, microtheory='VideoGamesMt'):
+    def generate_triples_krf(self, path_to_triples_txt, path_to_output_file, microtheory=None):
         '''
         Generates a properly formatted krf file with triples in the given microtheory.
         :param path_to_triples_txt: The filepath to a text file of triples in the format: ('pred' 'arg1' 'arg2'),
@@ -457,7 +457,8 @@ class TripleGenerator:
         out_f = open(path_to_output_file, "w+", encoding="utf8")
 
         # Write out the microtheory line plus a newline char
-        out_f.write('(in-microtheory ' + microtheory + ')\n\n')
+        if microtheory is not None:
+            out_f.write('(in-microtheory ' + microtheory + ')\n\n')
 
         # Convert each line to a string output, and write it to the file
         for line in list_of_lines:
