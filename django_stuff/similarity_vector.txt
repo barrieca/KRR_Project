@@ -1,0 +1,10 @@
+programmer 0.1
+composer 0.1
+artist 0.1
+designer 0.1
+director 0.1
+developmentStudio 0.1
+writer 0.1
+score 0.1
+releaseYear 0.1
+videoGameGenre 0.1
