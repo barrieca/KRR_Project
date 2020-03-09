@@ -1,4 +1,3 @@
-(in-microtheory VideoGamesMt)
 
 (in-microtheory 1001_SpikesMt)
 (isa 1001_Spikes VideoGame)
