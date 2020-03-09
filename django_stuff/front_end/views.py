@@ -18,10 +18,16 @@ def index(request):
     total_game_score_vector = {}
     feedback_dict = {'good': 1, 'bad': -1, 'neutral': 0}
     similarity_dict = {}
+    '''
+    Create pseudo similarity_vector
+    '''
     with open('./similarity_vector.txt') as f:
         for line in f:
             (key, val) = line.split()
             similarity_dict[key] = float(val)
+    '''
+    Get feedback from user
+    '''
     try:
         feedback = [request.POST['radio1'], request.POST['radio2'], request.POST['radio3']]
         feedback = [feedback_dict[f] for f in feedback]
@@ -29,6 +35,9 @@ def index(request):
         feedback = []
     vec = 0
     if feedback:
+        '''
+        Change sign on values in game_score_vectors depending on whether feedback was negative or positive (or neutral)
+        '''
         for i in range(len(feedback)):
             if vec == 0:
                 for k, v in game_score_vectors[i][1].items():
@@ -38,15 +47,12 @@ def index(request):
                 for k, v in game_score_vectors[i][1].items():
                     total_game_score_vector[k] += v * feedback[i]
     if feedback:
+        '''
+        Alter similarity vector and normalize, then write to file for storage
+        '''
         for k, v in similarity_dict.items():
             similarity_dict[k] = (v+0.01*total_game_score_vector[k])
         factor = 1.0/sum(similarity_dict.values())
-        print('******************************************************************\n'
-              '******************************************************************\n'
-              'Printing max value\n'
-              '******************************************************************\n'
-              '******************************************************************')
-        print(factor)
         for k, v in similarity_dict.items():
             similarity_dict[k] = v*factor
         with open('./similarity_vector.txt', 'w') as f:
@@ -88,6 +94,9 @@ def results(request):
         game_fact_set.append(game_facts)
 
     similarity_dict = {}
+    '''
+    Create game score vectors
+    '''
     with open('./similarity_vector.txt') as f:
         for line in f:
             (key, val) = line.split()
