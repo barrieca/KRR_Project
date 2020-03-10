@@ -94,30 +94,33 @@ With the data properly cleaned and formatted, the dataframe can begin to be conv
 triples for use in Companions. The code for generating the triples can be found within `TripleGenerator.py`. 
 
 First, a set of triples are generated that specify the properties associated with each entity. This is done in the
-function `create_triples_from_csv()`. For each attribute, the entities contained in the cell for that attribute of 
-a given game are denoted as relating to that game in some way. For example, the director of *Rocket League* is Thomas
-Silloway. As a result, the 3-tuple of strings `('director', 'Rocket_League', 'Thomas_Silloway')` is generated. All 
-of these triples are then stored in `triples.txt`, which is in the `data/` directory. 
+function `create_triples_from_csv()`. For each row of the dataframe (i.e. each game), a new microtheory is created. This
+is needed in order to perform analogical retrieval later. Then, for each column of the dataframe (i.e. each attribute),
+the entities (e.g. a person) contained in this attribute cell for the current game, we create a new triple. 
+For example, the director of *Rocket League* is Thomas Silloway. As a result, the 3-tuple of strings 
+`('director', 'Rocket_League', 'Thomas_Silloway')` is generated. All of these triples are then stored in `triples.txt`,
+ which is in the `data/` directory.  
 
 After this, a second function, `generate_entity_instances()`, is called. This creates another file of triples that 
 instantiates all of the entities that are referred to within the `triples.txt` file. This new file is called 
-`instance_triples.txt` and is stored in the `data/` directory.
-
-In this case,
-each entity is a VideoGame, VideoGameGenre, Person, Programmer, Artist, Writer, Composer, Director, Designer,
+`instance_triples.txt` and is also stored in the `data/` directory. Each entity can be of part of an `isa` relation with 
+one or more of VideoGame, VideoGameGenre, Person, Programmer, Artist, Writer, Composer, Director, Designer,
 DevelopmentStudio, or System. 
-  
-TODO: EXPAND ON HOW INSTANCE_TRIPLES.txt IS CREATED
 
 Once the triples are created within the two text files, the function `generate_triples_krf()` is called to convert the
-triples to the proper format and microtheory for use in Companions.
+triples to the proper format and microtheory for use in Companions. These files are stored within the `knowledge/`
+directory. At this point, the files are ready to be loaded into Companions and used for reasoning. 
 
-TODO: Generating case libraries
+In order to perform analogical retrieval based on each game represented in this system, it is necessary to group 
+certain sets of facts into case libraries. This is done in the function `generate_case_library_krf()`. This function
+will add each game's microtheory to the case library.
 
 TODO: How many triples did we end up with, and how many games are represented in total?
 
 #### Extending Companions Ontology
-Horn Clauses and where are they
+We build on top of the NextKB ontology provided within Companions. The complete set of entities, collections, predicates,
+and relations that we defined for this project can be found in `knowledge/Video_Game_Ontology.krf`. The implementation
+of the horn clauses for the predicates and relations can be found in `knowledge/Video_Game_Rules.krf`.
 
 ### Reasoning
 
