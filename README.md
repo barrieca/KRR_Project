@@ -7,30 +7,41 @@ but also on the individuals who created the games. To this end, we utilized anal
 reasoning techniques to find games with similar creators and artists, and allow for the quality of past recommendations
 to enhance future recommendations. This work was done as a final project for CS 371 at Northwestern University.
 
+The GitHub repository for this project can be found here: https://github.com/barrieca/KRR_Project
+
 ## Installation
 1. Install Companions
 2. pip install django
+2. pip install pandas
+2. pip install unidecode
 3. download/extract RePlay code repository (our code)
 
 ## Running the Project
-1. Start Companions
-2. Select "Start Sessions" from the Companions interface
-3. Load all .krf files in the knowledge folder (located in the repository's home directory)
-4. Start the RePlay code Django server by running "python manage.py runserver" from the
+1. *(Optional)* Regenerate knowledge triples by running `python main.py`. If desired, the csv_files list in
+   the main.py file can be modified to only generate data from the specified .csv files.
+   Currently, in the interest of speed, only Playstation 4 games are selected.
+2. Start Companions
+3. Select `Start Sessions` from the Companions interface
+4. Load all .krf files in the `knowledge/` directory (located in the repository's home directory)
+5. Start the RePlay code Django server by running `python manage.py runserver` from the
    django_stuff folder (located in the repository's home directory)
-5. In a web browser, browse to "localhost:8000"
-6. This is the main RePlay interface. Select three games from each of the text entry boxes
-   and for each game, select one or more properties about the game that you like.
-7. Select Go. The resulting page will show three game recommendations based on the
+6. In a web browser, browse to "localhost:8000"
+7. This is the main RePlay interface.
+   Note that this application has only been tested on machines running Windows 10 using Python 3.7.
+
+### Getting Recommendations
+1. Select three games by typing in the name of the game in each of the text entry boxes
+2. For each game, select one or more properties about the game that you like.
+3. Select Go. The resulting page will show three game recommendations based on the
    games and attributes entered in the previous page. Submit feedback for each of these
    recommended games by selecting the frowny face (bad recommendation), neutral face
    (okay recommendation), or smiley face (good recommendation).
-8. Select "Submit Feedback" to be redirected back to the original page. This feedback will
+4. Select "Submit Feedback" to be redirected back to the original page. This feedback will
    be taken into consideration when making future recommendations.
 
-### Getting Recommendations
-
 ## How Does it Work?
+This section will cover the knowledge representation we used, as well as the reasoning systems we used/built for this
+project.
 
 ### Knowledge Representation
 For this project, we adopted Cyc-style triples, and extended the ontology present within Companions to properly
@@ -125,17 +136,26 @@ will add each game's microtheory to the case library.
 We collected triples relating to 7433 games. There were approximately 94000 triples in total, with
 ~62000 facts about ~32000 distinct entities.
 
-
 #### Extending Companions Ontology
 We build on top of the NextKB ontology provided within Companions. The complete set of entities, collections, predicates,
 and relations that we defined for this project can be found in `knowledge/Video_Game_Ontology.krf`. The implementation
 of the horn clauses for the predicates and relations can be found in `knowledge/Video_Game_Rules.krf`.
 
+### Communication between Python and Companions
+The user interface is implemented using the Django python framework. A web development model-view-controller design
+template, where user interactions are performed from the html front-end, and the application logic is performed in the python back-end.
+This python back-end communicates with Companions via a Pythonian agent. To query the knowledge base, a user's
+action in the html front-end will trigger a python back-end call to the Pythonian agent, which will sumbit an "ask"
+request to Companions. Because this request is asynchronous, the agent is programmed to block until the Companions
+responds with a result. Insertion of new knowledge into Companions is done in a similar way, but without the need
+to wait for a response.
+
+
 ### Reasoning
 
 We decided to use both analogical retrieval and case-based reasoning for our recommendations. Before we used Companions
-built in analogical reasoning, we decided to do some pre-filtering on the games. We incorporated pre-existing domain 
-knowledge, we determined that the recommended games should share at least one genre with one of the games the user 
+built in analogical reasoning, we decided to do some pre-filtering on the games. We incorporated pre-existing domain
+knowledge, we determined that the recommended games should share at least one genre with one of the games the user
 provided for comparison.
 
 We noted that for user friendliness, the entire reasoning process must happen without the user having to interact with
@@ -161,7 +181,7 @@ designers, programmers, directors, artists, and composers. Although the numbers 
 worked on the game, Companions analogical reasoning does provide good candidates.
 
 Analogical reasoning is used in our system by taking the pre-filtered Case Libraries (each corresponding to one of
-the games provided by the user), and queries Companions, e.g. `(reminding (KBCaseFn game1Mt) 
+the games provided by the user), and queries Companions, e.g. `(reminding (KBCaseFn game1Mt)
 (CaseLibrarySansFn game1CaseLibrary game1Mt) (TheSet) ?mostsimilar ?matchinfo)`. We thus generate three different lists
 of games corresponding to the three different games provided by the user.
 
@@ -173,9 +193,9 @@ but also on previous data about the user.
 
 When the user provided 3 games to start the recommendation process, we also prompted them for information about which
 aspects of the game they preferred. Each of these aspects mapped to one or more attributes in the games. If the user
-said they liked the story, for example, that would map to the attribute `writer`. This serves two purposes. Firstly, it 
-increases the impact matching writers have when finding the most viable candidates among those received from the 
-analogical retrieval. Secondly, it increases (or decreases) the value of these attributes in subsequent recommendations, 
+said they liked the story, for example, that would map to the attribute `writer`. This serves two purposes. Firstly, it
+increases the impact matching writers have when finding the most viable candidates among those received from the
+analogical retrieval. Secondly, it increases (or decreases) the value of these attributes in subsequent recommendations,
 depending on the feedback the user provides about the recommendations.
 
 To retain information about the user, the system stores a similarity vector, which is the final determinant in which
@@ -185,7 +205,7 @@ The features in these vectors have positive values if they match one or more asp
 generated these candidate games, else 0.
 
 After the user has been provided with a set of recommended video games, they are given the option to provide feedback.
-The feedback the user provides after the recommendations determine the weights of the features for future 
+The feedback the user provides after the recommendations determine the weights of the features for future
 recommendations. If the feedback is positive, the positive values are added to the similarity
 vector. Else if it's negative, the values are subtracted from the feature vector. If the feedback is neutral, the
 similarity vector remains unchanged. The vector is then normalized and stored to be used for future recommendations
