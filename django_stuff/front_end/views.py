@@ -11,6 +11,7 @@ logger.setLevel(logging.DEBUG)
 agent = game_agent.GameAgent(host='localhost', port=9000, localPort=8950, debug=True)
 game_dict = data_manager.get_games()
 game_score_vectors = None
+case_lib_appendix = 0
 #print(agent.ask_agent('session-reasoner', '(emailOfCourseInstructor CS348-Winter2019 ?email)'))
 
 def index(request):
@@ -79,12 +80,35 @@ def results(request):
         game_attributes = tuple([attr for game_attribute in attributes[game_num] for attr in game_attribute.split()])
         original_game_fact_set = agent.get_game_facts(game_dict[game])
         original_game_fact_set['gameName'] = tuple([game])
-        original_game_facts.append((original_game_fact_set,game_attributes))
+        original_game_facts.append((original_game_fact_set, game_attributes))
 
-    game_sets = [agent.get_similar_games(game_dict[original_games[0]]),
-                 agent.get_similar_games(game_dict[original_games[1]]),
-                 agent.get_similar_games(game_dict[original_games[2]])]
+    global case_lib_appendix
+
+    case_libraries = []
+    case_library_base = 'VideoGameCaseLibrary_'+str(case_lib_appendix)
+    case_lib_appendix += 1
+    extra_appendix = 1
+    mt_name = 'VideoGamesMt'
+    for game in original_game_facts:
+        case_library = case_library_base + '_' +str(extra_appendix)
+        data = '(isa '+case_library+' CaseLibrary)'
+        new_data = f'(ist-Information {mt_name} {data})'
+        agent.insert_data('session-reasoner', new_data)
+        case_libraries.append(case_library)
+        extra_appendix += 1
+        game_genres = game[0]['videoGameGenre']
+        for genre in game_genres:
+            games_for_case_library = agent.get_games_with_attribute('videoGameGenre', genre)
+            games_for_case_library = [triple.split()[1] for triple in games_for_case_library]
+            for g in games_for_case_library:
+                agent.insert_game_in_case_library(case_library, g)
+
+    game_sets = [agent.get_similar_games(game_dict[original_games[0]], case_libraries[0]),
+                 agent.get_similar_games(game_dict[original_games[1]], case_libraries[1]),
+                 agent.get_similar_games(game_dict[original_games[2]], case_libraries[2])]
+
     game_sets = [game_set for game_set in game_sets if len(game_set) > 0]
+
     game_fact_set = []
     for games in game_sets:
         game_facts = []
