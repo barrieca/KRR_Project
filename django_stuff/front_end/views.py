@@ -4,7 +4,6 @@ from pythonian import game_agent
 import time
 import data_manager
 from similarity_measure import similarity_measure
-import csv
 
 logger = logging.getLogger('GameAgent')
 logger.setLevel(logging.DEBUG)
