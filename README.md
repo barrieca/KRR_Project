@@ -127,6 +127,58 @@ of the horn clauses for the predicates and relations can be found in `knowledge/
 
 ### Reasoning
 
+We decided to use both analogical retrieval and case-based reasoning for our recommendations. Before we used Companions
+built in analogical reasoning, we decided to do some pre-filtering on the games. We incorporated preexisting domain 
+knowledge, we determined that the recommended games should share at least one genre with one of the games the user 
+provided for comparison.
+
+We noted that for user friendliness, the entire reasoning process must happen without the user having to interact with
+system more than for providing previously played games, and feedback on the results.
+
+The reasoning process began with the user providing three games they had played in the past and enjoyed, which each
+game having at least one corresponding aspect that the user really liked about the game (e.g. art, gameplay, story).
+For each of these games, we dynamically created corresponding case libraries and added them as facts in Companions.
+Only after we had inserted these libraries and all corresponding facts into Companions could the system proceed to
+the analogical retrieval.
+
 #### Analogical Retrieval
 
+Perhaps the most unusual step in our recommendation system, at least based on video game recommendation systems out
+there, was our analogical retrieval step. We hoped that the analogical reasoning - the finding the games with most
+similar structures to the provided games, would prove fruitful in finding similar games in a novel manner. If a user
+has liked games with many writers - games that tend to be either very large or episodic - then our system would generate
+other games with many writers as candidates.
+
+As a concrete example, querying Companions for similar games to Uncharted 4, a game with 3 listed designers, 1 artist,
+1 composer, 3 programmers, and 2 directors, returns among others Telltale's Walking Dead, a game with an equal number
+designers, programmers, directors, artists, and composers. Although the numbers aren't identical for all people who
+worked on the game, Companions analogical reasoning does provide good candidates.  
+
+Analogical reasoning is used in our system by taking the pre-filtered Case Libraries (each corresponding to a single of
+the games provided by the user), and queries Companions, e.g. `(reminding (KBCaseFn game1Mt) 
+(CaseLibrarySansFn game1CaseLibrary game1Mt) (TheSet) ?mostsimilar ?matchinfo)`. We thus generate three different lists
+of games corresponding to the three different games.
+
 #### Case-Based Reasoning
+
+As recommendations often are (and should be) dependent on the preferences on the user, we decided that our system
+should adjust its recommendations not only depending what the user liked about the games they initially provided,
+ but also on previous data about the user.
+
+When the user provided 3 games to start the recommendation process, we also prompted them for information about which
+aspects of the game they preferred. Each of these aspects mapped to one or more attributes in the games. If the user
+said they liked the story, for example, that would map to the attribute `writer`. This serves two purposes: it increases
+the weight matching writers have when finding most viable candidates, and it increases (or decreases) the value of
+these attributes in subsequent recommendations, depending on the feedback on the recommendations.
+
+To retain information about the user, the system stores a similarity vector, which is the final determinant in which
+games the user is recommended. Initially each feature in the vector has equal weight 
+(`writer=0.1, programmer=0.1,...,score=0.1`). Additionally, each recommended game carries its own game score vector.
+The features in these vectors have positive values if they match one or more aspects of the (user provided) games that
+generated these candidate games, else 0. 
+
+The feedback the user provides after the recommendations determine the weights of the features for future 
+recommendations. If the feedback is positive, the positive values are added to the similarity
+vector. Else if it's negative, the values are subtracted from the feature vector. If the feedback is neutral, the
+similarity vector remains unchanged. The vector is then normalized and stored to be used for future recommendations
+for the same user. 
