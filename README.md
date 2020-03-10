@@ -7,6 +7,8 @@ but also on the individuals who created the games. To this end, we utilized anal
 reasoning techniques to find games with similar creators and artists, and allow for the quality of past recommendations
 to enhance future recommendations. This work was done as a final project for CS 371 at Northwestern University.
 
+Authors: Marko Sterbentz, Alexander Einarsson, and Cameron Barrie
+
 The GitHub repository for this project can be found here: https://github.com/barrieca/KRR_Project
 
 ## Installation
@@ -146,30 +148,30 @@ and relations that we defined for this project can be found in `knowledge/Video_
 of the horn clauses for the predicates and relations can be found in `knowledge/Video_Game_Rules.krf`.
 
 ### Communication between Python and Companions
-The user interface is implemented using the Django python framework. A web development model-view-controller design
-template, where user interactions are performed from the html front-end, and the application logic is performed in the python back-end.
-This python back-end communicates with Companions via a Pythonian agent. To query the knowledge base, a user's
-action in the html front-end will trigger a python back-end call to the Pythonian agent, which will sumbit an "ask"
-request to Companions. Because this request is asynchronous, the agent is programmed to block until the Companions
-responds with a result. Insertion of new knowledge into Companions is done in a similar way, but without the need
-to wait for a response.
+The user interface is implemented using the Django python framework, a web development model-view-controller design
+template where user interactions are performed from the html front-end, and the application logic is performed in the python
+back-end.  We extended this python back-end using a Pythonion agent daemon, which acts as a communication medium between the
+front-end interface that the user sees, and the reasoning and knowledge storage done in Companions. To query the knowledge
+base, a user's action in the html front-end will trigger a python back-end call to the Pythonian agent, which will sumbit an
+"ask" request to Companions. Because this request is asynchronous, the agent is programmed to block until Companions responds
+with a result. Insertion of new knowledge into Companions is done in a similar way, but without the need to wait for a response.
 
 
 ### Reasoning
 
-We decided to use both analogical retrieval and case-based reasoning for our recommendations. Before we used Companions
+We decided to use both analogical retrieval and case-based reasoning for our recommendations. Before we used Companions'
 built in analogical reasoning, we decided to do some pre-filtering on the games. We incorporated pre-existing domain
 knowledge, we determined that the recommended games should share at least one genre with one of the games the user
 provided for comparison.
 
 We noted that for user friendliness, the entire reasoning process must happen without the user having to interact with
-system more than for providing previously played games, and feedback on the results.
+the system more than for providing previously played games, and feedback on the results.
 
 The reasoning process began with the user providing three games they had played in the past and enjoyed, with each
 game having at least one corresponding aspect that the user really liked about the game (e.g. art, gameplay, story).
 For each of these games, we dynamically created corresponding case libraries and added them as facts in Companions.
 This task proved to be an involved process, as Companions didn't always correctly store the case libraries as case
-libraries after they were stored. We got it to work the way we wanted it, but if Companions don't store the case
+libraries after they were stored. We got it to work the way we wanted it, but if Companions doesn't store the case
 libraries correctly, our system doesn't work. We have run into the same issue with storing facts in Companions,
 with the same result that our system doesn't run. Only after we had inserted these libraries and all corresponding
 facts into Companions could the system proceed to the analogical retrieval.
@@ -185,8 +187,8 @@ similar structures to the provided games, would prove fruitful in finding simila
 has liked games with many writers - games that tend to be either very large or episodic - then our system would generate
 other games with many writers as candidates.
 
-As a concrete example, querying Companions for similar games to Uncharted 4, a game with 3 listed designers, 1 artist,
-1 composer, 3 programmers, and 2 directors, returns among others Telltale's Walking Dead, a game with an equal number
+As a concrete example, querying Companions for similar games to *Uncharted 4*, a game with 3 listed designers, 1 artist,
+1 composer, 3 programmers, and 2 directors, returns among others *Telltale's Walking Dead*, a game with an equal number
 designers, programmers, directors, artists, and composers. Although the numbers aren't identical for all people who
 worked on the game, Companions analogical reasoning does provide good candidates.
 
@@ -210,7 +212,7 @@ increases the impact matching writers have when finding the most viable candidat
 analogical retrieval. Secondly, it increases (or decreases) the value of these attributes in subsequent recommendations,
 depending on the feedback the user provides about the recommendations.
 
-To retain information about the user, the system stores a similarity vector, which is the final determinant in which
+To retain information about the user, the system stores a similarity vector, which is the final determinant of which
 games the user is recommended. Initially each feature in the vector has equal weight
 (`writer=0.1, programmer=0.1,...,score=0.1`). Additionally, each recommended game carries its own game score vector.
 The features in these vectors have positive values if they match one or more aspects of the (user provided) games that
@@ -228,5 +230,5 @@ the candidate games, **reused** in the ranking, **revised** based on the feedbac
 system for future recommendations.
 
 Unlike the analogical retrieval and the pre-filtering, the case-based reasoning takes place both in `results`,
-where it is retrieved and reused, and in index, where it is revised. It is retained as a text file in the `django_stuff`
+where it is retrieved and reused, and in `index`, where it is revised. It is retained as a text file in the `django_stuff`
 directory.
