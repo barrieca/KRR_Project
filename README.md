@@ -68,7 +68,8 @@ There are many games for which a plethora of high quality data is available. Thi
 highly rated games. Unfortunately, this was a more pernicious issue that we were unable to overcome effectively. 
 
 The end results of this can be found within the `data/` directory. Each query that we ran resulted in a .csv file
-of the game and its associated data.
+for the video game system and its associated data. For almost all of the systems there are multiple csv files. They all
+have the same format, but are the separate results from each of the broken up queries.
 
 #### Data Cleaning
 All of the data cleaning code can be found within `TripleGenerator.py`. A TripleGenerator object is created
