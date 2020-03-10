@@ -11,26 +11,27 @@ The GitHub repository for this project can be found here: https://github.com/bar
 
 ## Installation
 
-There are a few packages and software that are required to run this project properly. The 
+There are a few packages and software that are required to run this project properly. The
 
 1. Install Companions
-2. `pip install django`
-3. `pip install pandas`
-4. `pip install unidecode`
+2. Install Django with (v2.2.5) `pip install django`
+3. Install Pandas with (v1.0.1) `pip install pandas`
+4. Install Unidecode with (v1.1.1) `pip install unidecode`
 5. Download/extract RePlay code repository (our code)
 
 ## Running the Project
 1. *(Optional)* Regenerate knowledge triples by running `python main.py`. If desired, the `csv_files` list in
    the main.py file can be modified to only generate data from the specified .csv files.
-   Currently, in the interest of speed, only Playstation 4 games are selected.
-2. Start Companions
-3. Select `Start Sessions` from the Companions interface
-4. Load all .krf files in the `knowledge/` directory (located in the repository's home directory)
+   By default, in the interest of speed, only Playstation 4 games are selected.
+2. Start Companions.
+3. Click the `Start Sessions` button in the Companions interface.
+4. Load all .krf files in the `knowledge/` directory (located in the repository's home directory) by right
+   clicking on `session-reasoner` agent and selecting "Load Flatfile" for each of the files.
 5. Start the RePlay code Django server by running `python manage.py runserver` from the
    `django_stuff/` directory (located in the repository's home directory)
-6. In a web browser, browse to "localhost:8000"
+6. In a web browser, browse to `localhost:8000`.
 7. This is the main RePlay interface.
-   Note that this application has only been tested on machines running Windows 10 using Python 3.7.
+   *Note that this application has only been tested on machines running Windows 10 using Python 3.7.*
 
 ### Getting Recommendations
 1. Select three games by typing in the name of the game in each of the text entry boxes
@@ -228,4 +229,4 @@ system for future recommendations.
 
 Unlike the analogical retrieval and the pre-filtering, the case-based reasoning takes place both in `results`,
 where it is retrieved and reused, and in index, where it is revised. It is retained as a text file in the `django_stuff`
-directory. 
+directory.
