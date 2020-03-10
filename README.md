@@ -188,7 +188,7 @@ has liked games with many writers - games that tend to be either very large or e
 other games with many writers as candidates.
 
 As a concrete example, querying Companions for similar games to *Uncharted 4*, a game with 3 listed designers, 1 artist,
-1 composer, 3 programmers, and 2 directors, returns among others *Telltale's Walking Dead*, a game with an equal number
+1 composer, 3 programmers, and 2 directors, returns among others Telltale's *Walking Dead*, a game with an equal number
 designers, programmers, directors, artists, and composers. Although the numbers aren't identical for all people who
 worked on the game, Companions analogical reasoning does provide good candidates.
 
