@@ -67,12 +67,12 @@ based on the resource name) and using an offset into the rows (which were set as
 
 A second more difficult challenge was that this SPARQL endpoint also limited the *total* number of rows that could be
 returned by a single query. This was set to a maximum of 40000 rows. In order to get around this, for platforms that
-have more than 40000 facts associated with them, we incorporate a filter that will filter in and out games that tend
-to have a large number of rows associated with them. This typically includes games with episodic content where each
-of the episodes and its data gets associated with the same base game. This results in two queries that finds games
+have more than 40000 facts associated with them, we incorporated a filter that filtered in and out games that tended
+to have a large number of rows associated with them. This typically included games with episodic content where each
+of the episodes and its data were associated with the same base game. This resulted in two queries that found games
 and properties for a small set of games, as well as this set's complement.
 
-If there are still too much data for us to query, then a date range was used to query for games within specific date
+When there were still too much data for us to query, a date range was used to query for games within specific date
 ranges (or with no dates at all). This was the case for the PC games.
 
 Lastly, the third and most difficult challenge was the problem of sparse data contained in the queryable knowledge base.
@@ -85,7 +85,7 @@ have the same format, but are the separate results from each of the broken up qu
 
 #### Data Cleaning
 All of the data cleaning code can be found within `TripleGenerator.py`. A TripleGenerator object is created
-within `main.py`, which takes in a list of csv files which are cleaning and for which triples are generated.
+within `main.py`, which takes in a list of csv files which are cleaned and from which triples are generated.
 
 The first step of the data cleaning pipeline is to remove accented characters, asterisks, and apostrophes from
 each of the csv files we are working with. We found that these characters will cause multiple issues throughout
@@ -128,7 +128,7 @@ In order to perform analogical retrieval based on each game represented in this 
 certain sets of facts into case libraries. This is done in the function `generate_case_library_krf()`. This function
 will add each game's microtheory to the case library.
 
-In total, we collected triples relating to 7433 games. In total, there were approximately 94000 triples in total, with
+We collected triples relating to 7433 games. There were approximately 94000 triples in total, with
 ~62000 facts about ~32000 distinct entities.
 
 #### Extending Companions Ontology
@@ -149,14 +149,14 @@ to wait for a response.
 ### Reasoning
 
 We decided to use both analogical retrieval and case-based reasoning for our recommendations. Before we used Companions
-built in analogical reasoning, we decided to do some pre-filtering on the games. We incorporated preexisting domain
-knowledge, we determined that the recommended games should share at least one genre with one of the games the user
+built in analogical reasoning, we decided to do some pre-filtering on the games. We incorporated pre-existing domain 
+knowledge, we determined that the recommended games should share at least one genre with one of the games the user 
 provided for comparison.
 
 We noted that for user friendliness, the entire reasoning process must happen without the user having to interact with
 system more than for providing previously played games, and feedback on the results.
 
-The reasoning process began with the user providing three games they had played in the past and enjoyed, which each
+The reasoning process began with the user providing three games they had played in the past and enjoyed, with each
 game having at least one corresponding aspect that the user really liked about the game (e.g. art, gameplay, story).
 For each of these games, we dynamically created corresponding case libraries and added them as facts in Companions.
 Only after we had inserted these libraries and all corresponding facts into Companions could the system proceed to
@@ -175,22 +175,23 @@ As a concrete example, querying Companions for similar games to Uncharted 4, a g
 designers, programmers, directors, artists, and composers. Although the numbers aren't identical for all people who
 worked on the game, Companions analogical reasoning does provide good candidates.
 
-Analogical reasoning is used in our system by taking the pre-filtered Case Libraries (each corresponding to a single of
-the games provided by the user), and queries Companions, e.g. `(reminding (KBCaseFn game1Mt)
+Analogical reasoning is used in our system by taking the pre-filtered Case Libraries (each corresponding to one of
+the games provided by the user), and queries Companions, e.g. `(reminding (KBCaseFn game1Mt) 
 (CaseLibrarySansFn game1CaseLibrary game1Mt) (TheSet) ?mostsimilar ?matchinfo)`. We thus generate three different lists
-of games corresponding to the three different games.
+of games corresponding to the three different games provided by the user.
 
 #### Case-Based Reasoning
 
-As recommendations often are (and should be) dependent on the preferences on the user, we decided that our system
-should adjust its recommendations not only depending what the user liked about the games they initially provided,
- but also on previous data about the user.
+As recommendations often are (and should be) dependent on the preferences of the user, we decided that our system
+should adjust its recommendations not only based on what the user liked about the games they initially provided,
+but also on previous data about the user.
 
 When the user provided 3 games to start the recommendation process, we also prompted them for information about which
 aspects of the game they preferred. Each of these aspects mapped to one or more attributes in the games. If the user
-said they liked the story, for example, that would map to the attribute `writer`. This serves two purposes: it increases
-the weight matching writers have when finding most viable candidates, and it increases (or decreases) the value of
-these attributes in subsequent recommendations, depending on the feedback on the recommendations.
+said they liked the story, for example, that would map to the attribute `writer`. This serves two purposes. Firstly, it 
+increases the impact matching writers have when finding the most viable candidates among those received from the 
+analogical retrieval. Secondly, it increases (or decreases) the value of these attributes in subsequent recommendations, 
+depending on the feedback the user provides about the recommendations.
 
 To retain information about the user, the system stores a similarity vector, which is the final determinant in which
 games the user is recommended. Initially each feature in the vector has equal weight
@@ -198,7 +199,8 @@ games the user is recommended. Initially each feature in the vector has equal we
 The features in these vectors have positive values if they match one or more aspects of the (user provided) games that
 generated these candidate games, else 0.
 
-The feedback the user provides after the recommendations determine the weights of the features for future
+After the user has been provided with a set of recommended video games, they are given the option to provide feedback.
+The feedback the user provides after the recommendations determine the weights of the features for future 
 recommendations. If the feedback is positive, the positive values are added to the similarity
 vector. Else if it's negative, the values are subtracted from the feature vector. If the feedback is neutral, the
 similarity vector remains unchanged. The vector is then normalized and stored to be used for future recommendations
