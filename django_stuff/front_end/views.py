@@ -14,6 +14,11 @@ case_lib_appendix = 0
 #print(agent.ask_agent('session-reasoner', '(emailOfCourseInstructor CS348-Winter2019 ?email)'))
 
 def index(request):
+    '''
+    view for index.html
+    :param request - the page request object
+    :return: rendered page
+    '''
     global game_score_vectors
     total_game_score_vector = {}
     feedback_dict = {'good': 1, 'bad': -1, 'neutral': 0}
@@ -65,6 +70,11 @@ def index(request):
     return render(request, 'index.html', context)
 
 def results(request):
+    '''
+    view for results.html
+    :param request - the page request object
+    :return: rendered page
+    '''
 #try:
     original_games = [request.POST['game1'], request.POST['game2'], request.POST['game3']]
 
