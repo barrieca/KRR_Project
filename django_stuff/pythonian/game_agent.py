@@ -62,11 +62,17 @@ class GameAgent(Pythonian):
 
     def get_games_with_attribute(self, attribute, value):
         results = self.query('(' + attribute + ' ?match ' + value + ')')
-        return [re.match('(' + attribute + ' (\S+) ' + value + ')', str(item)).group(1) for item in results]
+        result_list = []
+        for item in results:
+            matches = re.search('(' + attribute + ' (\S+) ' + value + ')', str(item))
+            if matches != None:
+                result_list.append(matches.group(1))
+        return result_list
 
-    def get_similar_games(self, game):
+    def get_similar_games(self, game, case_library):
         game_mt = game + 'Mt'
-        results = self.query('(reminding (KBCaseFn ' + game_mt + ') (CaseLibrarySansFn VideoGameCaseLibrary ' + game_mt + ') (TheSet) ?mostsimilar ?matchinfo)')
+        results = self.query('(reminding (KBCaseFn ' + game_mt + ') (CaseLibrarySansFn ' + case_library + ' ' + game_mt
+                             + ') (TheSet) ?mostsimilar ?matchinfo)')
         result_list = []
         for item in results:
             matches = re.search('\(TheSet\) *(\S+) *\(.*\)\)', str(item))
@@ -93,6 +99,12 @@ class GameAgent(Pythonian):
     def get_isa(self, what_it_is):
         results = self.query('(isa ?match ' + what_it_is + ')')
         return [re.match('\(isa (\S+)', str(item)).group(1) for item in results]
+
+    def insert_game_in_case_library(self, case_library, game):
+        game_mt = game+'Mt'
+        data = '(caseLibraryContains '+case_library+' '+game_mt+')'
+        self.insert_data('session-reasoner', data)
+        return True
 
     def some_achieve(self):
         logger.debug('some_func')
