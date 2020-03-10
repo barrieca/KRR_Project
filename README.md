@@ -139,8 +139,7 @@ of the horn clauses for the predicates and relations can be found in `knowledge/
 
 ### Communication between Python and Companions
 The user interface is implemented using the Django python framework. A web development model-view-controller design
-template, where the application logic is performed in the python back-end, while the user interactions are performed
-in the html front-end.
+template, where user interactions are performed from the html front-end, and the application logic is performed in the python back-end.
 This python back-end communicates with Companions via a Pythonian agent. To query the knowledge base, a user's
 action in the html front-end will trigger a python back-end call to the Pythonian agent, which will sumbit an "ask"
 request to Companions. Because this request is asynchronous, the agent is programmed to block until the Companions
