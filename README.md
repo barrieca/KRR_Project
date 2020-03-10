@@ -169,8 +169,14 @@ system more than for providing previously played games, and feedback on the resu
 The reasoning process began with the user providing three games they had played in the past and enjoyed, with each
 game having at least one corresponding aspect that the user really liked about the game (e.g. art, gameplay, story).
 For each of these games, we dynamically created corresponding case libraries and added them as facts in Companions.
-Only after we had inserted these libraries and all corresponding facts into Companions could the system proceed to
-the analogical retrieval.
+This task proved to be an involved process, as Companions didn't always correctly store the case libraries as case
+libraries after they were stored. We got it to work the way we wanted it, but if Companions don't store the case
+libraries correctly, our system doesn't work. We have run into the same issue with storing facts in Companions,
+with the same result that our system doesn't run. Only after we had inserted these libraries and all corresponding 
+facts into Companions could the system proceed to the analogical retrieval.
+
+This pre-filtering takes place in the `views.py` file (in the `results` function as that is where the games are 
+provided). It also builds up the case libraries in this functions. It communicates with companions via the agent instantiated in `game_agent.py`.
 
 #### Analogical Retrieval
 
@@ -189,6 +195,8 @@ Analogical reasoning is used in our system by taking the pre-filtered Case Libra
 the games provided by the user), and queries Companions, e.g. `(reminding (KBCaseFn game1Mt)
 (CaseLibrarySansFn game1CaseLibrary game1Mt) (TheSet) ?mostsimilar ?matchinfo)`. We thus generate three different lists
 of games corresponding to the three different games provided by the user.
+
+The analogical retrieval, just like the pre-filtering, takes place entirely in the `results` function in `views.py`.
 
 #### Case-Based Reasoning
 
@@ -219,3 +227,7 @@ for the same user.
 Following with the four Rs in case-based reasoning, the vector is **retrieved** from the system when it's time to rank
 the candidate games, **reused** in the ranking, **revised** based on the feedback from the user, and **retained** in the
 system for future recommendations.
+
+Unlike the analogical retrieval and the pre-filtering, the case-based reasoning takes place both in `results`,
+where it is retrieved and reused, and in index, where it is revised. It is retained as a text file in the `django_stuff`
+directory. 
