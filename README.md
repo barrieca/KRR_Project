@@ -148,11 +148,11 @@ and relations that we defined for this project can be found in `knowledge/Video_
 of the horn clauses for the predicates and relations can be found in `knowledge/Video_Game_Rules.krf`.
 
 ### Communication between Python and Companions
-The user interface is implemented using the Django python framework, a web development model-view-controller design
-template where user interactions are performed from the html front-end, and the application logic is performed in the python
-back-end.  We extended this python back-end using a Pythonion agent daemon, which acts as a communication medium between the
+The user interface is implemented using the Django Python framework, a web development model-view-controller design
+template where user interactions are performed from the html front-end, and the application logic is performed in the Python
+back-end.  We extended this Python back-end using a Pythonion agent daemon, which acts as a communication medium between the
 front-end interface that the user sees, and the reasoning and knowledge storage done in Companions. To query the knowledge
-base, a user's action in the html front-end will trigger a python back-end call to the Pythonian agent, which will submit an
+base, a user's action in the html front-end will trigger a Python back-end call to the Pythonian agent, which will submit an
 `ask` request to Companions. Because this request is asynchronous, the agent is programmed to block until Companions responds
 with a result. Insertion of new knowledge into Companions is done in a similar way, but without the need to wait for a response.
 
