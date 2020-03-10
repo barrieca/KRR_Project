@@ -190,3 +190,7 @@ recommendations. If the feedback is positive, the positive values are added to t
 vector. Else if it's negative, the values are subtracted from the feature vector. If the feedback is neutral, the
 similarity vector remains unchanged. The vector is then normalized and stored to be used for future recommendations
 for the same user.
+
+Following with the four Rs in case-based reasoning, the vector is **retrieved** from the system when it's time to rank
+the candidate games, **reused** in the ranking, **revised** based on the feedback from the user, and **retained** in the
+system for future recommendations.
