@@ -22,7 +22,6 @@ There are a few packages and software that are required to run this project prop
 ## Running the Project
 1. *(Optional)* Regenerate knowledge triples by running `python main.py`. If desired, the `csv_files` list in
    the main.py file can be modified to only generate data from the specified .csv files.
-<<<<<<< HEAD
    By default, in the interest of speed, only Playstation 4 games are selected.
 2. Start Companions.
 3. Click the `Start Sessions` button in the Companions interface.
@@ -172,10 +171,10 @@ For each of these games, we dynamically created corresponding case libraries and
 This task proved to be an involved process, as Companions didn't always correctly store the case libraries as case
 libraries after they were stored. We got it to work the way we wanted it, but if Companions don't store the case
 libraries correctly, our system doesn't work. We have run into the same issue with storing facts in Companions,
-with the same result that our system doesn't run. Only after we had inserted these libraries and all corresponding 
+with the same result that our system doesn't run. Only after we had inserted these libraries and all corresponding
 facts into Companions could the system proceed to the analogical retrieval.
 
-This pre-filtering takes place in the `views.py` file (in the `results` function as that is where the games are 
+This pre-filtering takes place in the `views.py` file (in the `results` function as that is where the games are
 provided). It also builds up the case libraries in this functions. It communicates with companions via the agent instantiated in `game_agent.py`.
 
 #### Analogical Retrieval
@@ -230,4 +229,4 @@ system for future recommendations.
 
 Unlike the analogical retrieval and the pre-filtering, the case-based reasoning takes place both in `results`,
 where it is retrieved and reused, and in index, where it is revised. It is retained as a text file in the `django_stuff`
-directory. 
+directory.
