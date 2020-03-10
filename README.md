@@ -61,12 +61,12 @@ based on the resource name) and using an offset into the rows (which were set as
 
 A second more difficult challenge was that this SPARQL endpoint also limited the *total* number of rows that could be
 returned by a single query. This was set to a maximum of 40000 rows. In order to get around this, for platforms that
-have more than 40000 facts associated with them, we incorporate a filter that will filter in and out games that tend
-to have a large number of rows associated with them. This typically includes games with episodic content where each
-of the episodes and its data gets associated with the same base game. This results in two queries that finds games
+have more than 40000 facts associated with them, we incorporated a filter that filtered in and out games that tended
+to have a large number of rows associated with them. This typically included games with episodic content where each
+of the episodes and its data were associated with the same base game. This resulted in two queries that found games
 and properties for a small set of games, as well as this set's complement.
 
-If there are still too much data for us to query, then a date range was used to query for games within specific date
+When there were still too much data for us to query, a date range was used to query for games within specific date
 ranges (or with no dates at all). This was the case for the PC games.
 
 Lastly, the third and most difficult challenge was the problem of sparse data contained in the queryable knowledge base.
@@ -79,7 +79,7 @@ have the same format, but are the separate results from each of the broken up qu
 
 #### Data Cleaning
 All of the data cleaning code can be found within `TripleGenerator.py`. A TripleGenerator object is created
-within `main.py`, which takes in a list of csv files which are cleaning and for which triples are generated.
+within `main.py`, which takes in a list of csv files which are cleaned and from which triples are generated.
 
 The first step of the data cleaning pipeline is to remove accented characters, asterisks, and apostrophes from
 each of the csv files we are working with. We found that these characters will cause multiple issues throughout
@@ -122,7 +122,7 @@ In order to perform analogical retrieval based on each game represented in this 
 certain sets of facts into case libraries. This is done in the function `generate_case_library_krf()`. This function
 will add each game's microtheory to the case library.
 
-In total, we collected triples relating to 7433 games. In total, there were approximately 94000 triples in total, with
+We collected triples relating to 7433 games. There were approximately 94000 triples in total, with
 ~62000 facts about ~32000 distinct entities.
 
 
