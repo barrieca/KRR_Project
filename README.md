@@ -7,6 +7,8 @@ but also on the individuals who created the games. To this end, we utilized anal
 reasoning techniques to find games with similar creators and artists, and allow for the quality of past recommendations
 to enhance future recommendations. This work was done as a final project for CS 371 at Northwestern University.
 
+The GitHub repository for this project can be found here: https://github.com/barrieca/KRR_Project
+
 ## Installation
 1. Install Companions
 2. pip install django
@@ -15,29 +17,31 @@ to enhance future recommendations. This work was done as a final project for CS 
 3. download/extract RePlay code repository (our code)
 
 ## Running the Project
-1. Regenerate Data by running `python main.py` (optional). If desired, the csv_files list in
+1. *(Optional)* Regenerate knowledge triples by running `python main.py`. If desired, the csv_files list in
    the main.py file can be modified to only generate data from the specified .csv files.
    Currently, in the interest of speed, only Playstation 4 games are selected.
 2. Start Companions
 3. Select `Start Sessions` from the Companions interface
-4. Load all .krf files in the knowledge folder (located in the repository's home directory)
+4. Load all .krf files in the `knowledge/` directory (located in the repository's home directory)
 5. Start the RePlay code Django server by running `python manage.py runserver` from the
    django_stuff folder (located in the repository's home directory)
 6. In a web browser, browse to "localhost:8000"
 7. This is the main RePlay interface.
-   Note that this application has only been tested on machines running Windows 10.
+   Note that this application has only been tested on machines running Windows 10 using Python 3.7.
 
 ### Getting Recommendations
-1. Select three games from each of the text entry boxes
-   and for each game, select one or more properties about the game that you like.
-2. Select Go. The resulting page will show three game recommendations based on the
+1. Select three games by typing in the name of the game in each of the text entry boxes
+2. For each game, select one or more properties about the game that you like.
+3. Select Go. The resulting page will show three game recommendations based on the
    games and attributes entered in the previous page. Submit feedback for each of these
    recommended games by selecting the frowny face (bad recommendation), neutral face
    (okay recommendation), or smiley face (good recommendation).
-3. Select "Submit Feedback" to be redirected back to the original page. This feedback will
+4. Select "Submit Feedback" to be redirected back to the original page. This feedback will
    be taken into consideration when making future recommendations.
 
 ## How Does it Work?
+This section will cover the knowledge representation we used, as well as the reasoning systems we used/built for this
+project.
 
 ### Knowledge Representation
 For this project, we adopted Cyc-style triples, and extended the ontology present within Companions to properly
