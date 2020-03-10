@@ -10,25 +10,31 @@ to enhance future recommendations. This work was done as a final project for CS 
 ## Installation
 1. Install Companions
 2. pip install django
+2. pip install pandas
+2. pip install unidecode
 3. download/extract RePlay code repository (our code)
 
 ## Running the Project
-1. Start Companions
-2. Select "Start Sessions" from the Companions interface
-3. Load all .krf files in the knowledge folder (located in the repository's home directory)
-4. Start the RePlay code Django server by running "python manage.py runserver" from the
+1. Regenerate Data by running "python main.py" (optional). If desired, the csv_files list in
+   the main.py file can be modified to only generate data from the specified .csv files.
+   Currently, in the interest of speed, only Playstation 4 games are selected.
+2. Start Companions
+3. Select "Start Sessions" from the Companions interface
+4. Load all .krf files in the knowledge folder (located in the repository's home directory)
+5. Start the RePlay code Django server by running "python manage.py runserver" from the
    django_stuff folder (located in the repository's home directory)
-5. In a web browser, browse to "localhost:8000"
-6. This is the main RePlay interface. Select three games from each of the text entry boxes
+6. In a web browser, browse to "localhost:8000"
+7. This is the main RePlay interface.
+
+### Getting Recommendations
+1. Select three games from each of the text entry boxes
    and for each game, select one or more properties about the game that you like.
-7. Select Go. The resulting page will show three game recommendations based on the
+2. Select Go. The resulting page will show three game recommendations based on the
    games and attributes entered in the previous page. Submit feedback for each of these
    recommended games by selecting the frowny face (bad recommendation), neutral face
    (okay recommendation), or smiley face (good recommendation).
-8. Select "Submit Feedback" to be redirected back to the original page. This feedback will
+3. Select "Submit Feedback" to be redirected back to the original page. This feedback will
    be taken into consideration when making future recommendations.
-
-### Getting Recommendations
 
 ## How Does it Work?
 
@@ -125,11 +131,20 @@ will add each game's microtheory to the case library.
 In total, we collected triples relating to 7433 games. In total, there were approximately 94000 triples in total, with
 ~62000 facts about ~32000 distinct entities.
 
-
 #### Extending Companions Ontology
 We build on top of the NextKB ontology provided within Companions. The complete set of entities, collections, predicates,
 and relations that we defined for this project can be found in `knowledge/Video_Game_Ontology.krf`. The implementation
 of the horn clauses for the predicates and relations can be found in `knowledge/Video_Game_Rules.krf`.
+
+### Communication between python and companions
+The user interface is implemented using the python framework Django. A web development model-view-controller design
+template, where the application logic is performed in the python back-end, while the user sees the html front-end.
+This python back-end communicates with Companions via a Pythonian agent. To query the knowledge base, a user's
+action in the html front-end will trigger a python back-end call to the Pythonian agent, which will sumbit an "ask"
+request to Companions. Because this request is asynchronous, the agent is programmed to block until the Companions
+responds with a result. Insertion of new knowledge into Companions is done in a similar way, but without the need
+to wait for a response.
+
 
 ### Reasoning
 
