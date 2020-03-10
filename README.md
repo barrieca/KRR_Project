@@ -11,23 +11,24 @@ The GitHub repository for this project can be found here: https://github.com/bar
 
 ## Installation
 1. Install Companions
-2. pip install django
-2. pip install pandas
-2. pip install unidecode
+2. pip install django (v2.2.5)
+2. pip install pandas (v1.0.1)
+2. pip install unidecode (v1.1.1)
 3. download/extract RePlay code repository (our code)
 
 ## Running the Project
 1. *(Optional)* Regenerate knowledge triples by running `python main.py`. If desired, the csv_files list in
    the main.py file can be modified to only generate data from the specified .csv files.
-   Currently, in the interest of speed, only Playstation 4 games are selected.
-2. Start Companions
-3. Select `Start Sessions` from the Companions interface
-4. Load all .krf files in the `knowledge/` directory (located in the repository's home directory)
-5. Start the RePlay code Django server by running `python manage.py runserver` from the
-   django_stuff folder (located in the repository's home directory)
-6. In a web browser, browse to "localhost:8000"
+   By default, in the interest of speed, only Playstation 4 games are selected.
+2. Start Companions.
+3. Click the "Start Sessions" button in the Companions interface.
+4. Load all .krf files in the `knowledge/` directory (located in the repository's home directory) by right
+   clicking on `session-reasoner` agent and selecting "Load Flatfile" for each of the files.
+5. Start the RePlay server by running `python manage.py runserver` from the django_stuff folder (located in
+   the repository's home directory).
+6. In a web browser, browse to "localhost:8000".
 7. This is the main RePlay interface.
-   Note that this application has only been tested on machines running Windows 10 using Python 3.7.
+   *Note that this application has only been tested on machines running Windows 10 using Python 3.7.*
 
 ### Getting Recommendations
 1. Select three games by typing in the name of the game in each of the text entry boxes
