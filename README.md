@@ -1,33 +1,39 @@
 # RePlay: A Video Game Recommendation System
 
-RePlay is a knowledge based approach for recommending video games. As with all artistic endeavors, the finished 
-piece of work is strongly influenced by those who actually work to produce the final product. With this in mind, 
-our project aims to allow users to find new video games to play based not only on the genre, rating, and platform, 
+RePlay is a knowledge based approach for recommending video games. As with all artistic endeavors, the finished
+piece of work is strongly influenced by those who actually work to produce the final product. With this in mind,
+our project aims to allow users to find new video games to play based not only on the genre, rating, and platform,
 but also on the individuals who created the games. To this end, we utilized analogical retrieval and case-based
 reasoning techniques to find games with similar creators and artists, and allow for the quality of past recommendations
 to enhance future recommendations. This work was done as a final project for CS 371 at Northwestern University.
 
 ## Installation
+1. Install Companions
+2. pip install django
+3. download/extract RePlay code repository (our code)
 
-Python Packages required and Python version
-Installing Companions
-Installing Django
-
-### Running the Project
-
-This section needs to "describes step by step what I will need to do to run your project, anything I need to load,
-anything I need to type, and any expected output."
-
-Starting Companions
-KRF file loading
-Starting Django
+## Running the Project
+1. Start Companions
+2. Select "Start Sessions" from the Companions interface
+3. Load all .krf files in the knowledge folder (located in the repository's home directory)
+4. Start the RePlay code Django server by running "python manage.py runserver" from the
+   django_stuff folder (located in the repository's home directory)
+5. In a web browser, browse to "localhost:8000"
+6. This is the main RePlay interface. Select three games from each of the text entry boxes
+   and for each game, select one or more properties about the game that you like.
+7. Select Go. The resulting page will show three game recommendations based on the
+   games and attributes entered in the previous page. Submit feedback for each of these
+   recommended games by selecting the frowny face (bad recommendation), neutral face
+   (okay recommendation), or smiley face (good recommendation).
+8. Select "Submit Feedback" to be redirected back to the original page. This feedback will
+   be taken into consideration when making future recommendations.
 
 ### Getting Recommendations
 
 ## How Does it Work?
 
 ### Knowledge Representation
-For this project, we adopted Cyc-style triples, and extended the ontology present within Companions to properly 
+For this project, we adopted Cyc-style triples, and extended the ontology present within Companions to properly
 represent the entities and properties with which we perform the reasoning.
 
 #### Data Acquisition
@@ -50,22 +56,22 @@ The video game properties that we queried for are as follows:
 We collected data for games on PC, PlayStation 4, Xbox One, Nintendo Switch, and Nintendo Wii U. During this process,
 there were a number of challenges that needed to be overcome. The first of these challenges was the DBpedia SPARQL query
 endpoint imposing a hard limit on the number of rows that could be viewed/downloaded at once, which was capped at 10000.
-This problem was relatively simple to overcome by adding an ordering condition (sorted the rows in ascending order 
+This problem was relatively simple to overcome by adding an ordering condition (sorted the rows in ascending order
 based on the resource name) and using an offset into the rows (which were set as multiples of 10000).
 
 A second more difficult challenge was that this SPARQL endpoint also limited the *total* number of rows that could be
-returned by a single query. This was set to a maximum of 40000 rows. In order to get around this, for platforms that 
-have more than 40000 facts associated with them, we incorporated a filter to filter in and out games that tended 
-to have a large number of rows associated with them. This typically included games with episodic content where each 
-of the episodes and its data are associated with the same base game. This resulted in two queries that found games 
+returned by a single query. This was set to a maximum of 40000 rows. In order to get around this, for platforms that
+have more than 40000 facts associated with them, we incorporate a filter that will filter in and out games that tend
+to have a large number of rows associated with them. This typically includes games with episodic content where each
+of the episodes and its data gets associated with the same base game. This results in two queries that finds games
 and properties for a small set of games, as well as this set's complement.
 
-When there were still too much data for us to query, a date range was used to query for games within specific date
+If there are still too much data for us to query, then a date range was used to query for games within specific date
 ranges (or with no dates at all). This was the case for the PC games.
 
 Lastly, the third and most difficult challenge was the problem of sparse data contained in the queryable knowledge base.
-There are many games for which a plethora of high quality data are available. This tended to happen for more popular or
-highly rated games. Unfortunately, this was a more pernicious issue that we were unable to overcome effectively. 
+There are many games for which a plethora of high quality data is available. This tended to happen for more popular or
+highly rated games. Unfortunately, this was a more pernicious issue that we were unable to overcome effectively.
 
 The end results of this can be found within the `data/` directory. Each query that we ran resulted in a .csv file
 for the video game system and its associated data. For almost all of the systems there are multiple csv files. They all
@@ -73,50 +79,50 @@ have the same format, but are the separate results from each of the broken up qu
 
 #### Data Cleaning
 All of the data cleaning code can be found within `TripleGenerator.py`. A TripleGenerator object is created
-within `main.py`, which takes in a list of csv files which are cleaned and from which triples are generated. 
+within `main.py`, which takes in a list of csv files which are cleaning and for which triples are generated.
 
 The first step of the data cleaning pipeline is to remove accented characters, asterisks, and apostrophes from
 each of the csv files we are working with. We found that these characters will cause multiple issues throughout
 the rest of the pipeline, including issues when loading the final .krf files into Companions.
 
-The next step is to load each csv file into a single Pandas dataframe. This process can be seen in the 
-`__create_dataframe_from_csv()` function. Rows with the same URI are combined into a single row, with 
+The next step is to load each csv file into a single Pandas dataframe. This process can be seen in the
+`__create_dataframe_from_csv()` function. Rows with the same URI are combined into a single row, with
 duplicate attribute values removed and attributes with multiple values being stored in a list for that game.
 
-This dataframe is then cleaned further in the `__format_dataframe_strings()` function and the values are formatted 
+This dataframe is then cleaned further in the `__format_dataframe_strings()` function and the values are formatted
 properly for later conversion to knowledge triples. Within this function, the URI namespaces are removed to leave
-just the game name, which is used as the symbol for this entity. Various substrings are removed, including commas, 
-colons, semicolons, quotations, and anything within parentheses (which typically just denotes an entity as a 
+just the game name, which is used as the symbol for this entity. Various substrings are removed, including commas,
+colons, semicolons, quotations, and anything within parentheses (which typically just denotes an entity as a
 video game or a game developer). The names of people, which typically contain spaces, are joined together with an
-underscore between them for use as the symbol for this entity in the reasoning system. 
+underscore between them for use as the symbol for this entity in the reasoning system.
 
 #### Knowledge Generation
-With the data properly cleaned and formatted, the dataframe can begin to be converted to Cyc-style knowledge 
-triples for use in Companions. The code for generating the triples can be found within `TripleGenerator.py`. 
+With the data properly cleaned and formatted, the dataframe can begin to be converted to Cyc-style knowledge
+triples for use in Companions. The code for generating the triples can be found within `TripleGenerator.py`.
 
 First, a set of triples are generated that specify the properties associated with each entity. This is done in the
 function `create_triples_from_csv()`. For each row of the dataframe (i.e. each game), a new microtheory is created. This
 is needed in order to perform analogical retrieval later. Then, for each column of the dataframe (i.e. each attribute),
-the entities (e.g. a person) contained in this attribute cell for the current game, we create a new triple. 
-For example, the director of *Rocket League* is Thomas Silloway. As a result, the 3-tuple of strings 
+the entities (e.g. a person) contained in this attribute cell for the current game, we create a new triple.
+For example, the director of *Rocket League* is Thomas Silloway. As a result, the 3-tuple of strings
 `('director', 'Rocket_League', 'Thomas_Silloway')` is generated. All of these triples are then stored in `triples.txt`,
- which is in the `data/` directory.  
+ which is in the `data/` directory.
 
-After this, a second function, `generate_entity_instances()`, is called. This creates another file of triples that 
-instantiates all of the entities that are referred to within the `triples.txt` file. This new file is called 
-`instance_triples.txt` and is also stored in the `data/` directory. Each entity can be of part of an `isa` relation with 
+After this, a second function, `generate_entity_instances()`, is called. This creates another file of triples that
+instantiates all of the entities that are referred to within the `triples.txt` file. This new file is called
+`instance_triples.txt` and is also stored in the `data/` directory. Each entity can be of part of an `isa` relation with
 one or more of VideoGame, VideoGameGenre, Person, Programmer, Artist, Writer, Composer, Director, Designer,
-DevelopmentStudio, or System. 
+DevelopmentStudio, or System.
 
 Once the triples are created within the two text files, the function `generate_triples_krf()` is called to convert the
 triples to the proper format and microtheory for use in Companions. These files are stored within the `knowledge/`
-directory. At this point, the files are ready to be loaded into Companions and used for reasoning. 
+directory. At this point, the files are ready to be loaded into Companions and used for reasoning.
 
-In order to perform analogical retrieval based on each game represented in this system, it is necessary to group 
+In order to perform analogical retrieval based on each game represented in this system, it is necessary to group
 certain sets of facts into case libraries. This is done in the function `generate_case_library_krf()`. This function
 will add each game's microtheory to the case library.
 
-We collected triples relating to 7433 games. In total, there were approximately 94000 triples in total, with
+In total, we collected triples relating to 7433 games. In total, there were approximately 94000 triples in total, with
 ~62000 facts about ~32000 distinct entities.
 
 
@@ -128,8 +134,8 @@ of the horn clauses for the predicates and relations can be found in `knowledge/
 ### Reasoning
 
 We decided to use both analogical retrieval and case-based reasoning for our recommendations. Before we used Companions
-built in analogical reasoning, we decided to do some pre-filtering on the games. We incorporated preexisting domain 
-knowledge, we determined that the recommended games should share at least one genre with one of the games the user 
+built in analogical reasoning, we decided to do some pre-filtering on the games. We incorporated preexisting domain
+knowledge, we determined that the recommended games should share at least one genre with one of the games the user
 provided for comparison.
 
 We noted that for user friendliness, the entire reasoning process must happen without the user having to interact with
@@ -152,10 +158,10 @@ other games with many writers as candidates.
 As a concrete example, querying Companions for similar games to Uncharted 4, a game with 3 listed designers, 1 artist,
 1 composer, 3 programmers, and 2 directors, returns among others Telltale's Walking Dead, a game with an equal number
 designers, programmers, directors, artists, and composers. Although the numbers aren't identical for all people who
-worked on the game, Companions analogical reasoning does provide good candidates.  
+worked on the game, Companions analogical reasoning does provide good candidates.
 
 Analogical reasoning is used in our system by taking the pre-filtered Case Libraries (each corresponding to a single of
-the games provided by the user), and queries Companions, e.g. `(reminding (KBCaseFn game1Mt) 
+the games provided by the user), and queries Companions, e.g. `(reminding (KBCaseFn game1Mt)
 (CaseLibrarySansFn game1CaseLibrary game1Mt) (TheSet) ?mostsimilar ?matchinfo)`. We thus generate three different lists
 of games corresponding to the three different games.
 
@@ -172,13 +178,13 @@ the weight matching writers have when finding most viable candidates, and it inc
 these attributes in subsequent recommendations, depending on the feedback on the recommendations.
 
 To retain information about the user, the system stores a similarity vector, which is the final determinant in which
-games the user is recommended. Initially each feature in the vector has equal weight 
+games the user is recommended. Initially each feature in the vector has equal weight
 (`writer=0.1, programmer=0.1,...,score=0.1`). Additionally, each recommended game carries its own game score vector.
 The features in these vectors have positive values if they match one or more aspects of the (user provided) games that
-generated these candidate games, else 0. 
+generated these candidate games, else 0.
 
-The feedback the user provides after the recommendations determine the weights of the features for future 
+The feedback the user provides after the recommendations determine the weights of the features for future
 recommendations. If the feedback is positive, the positive values are added to the similarity
 vector. Else if it's negative, the values are subtracted from the feature vector. If the feedback is neutral, the
 similarity vector remains unchanged. The vector is then normalized and stored to be used for future recommendations
-for the same user. 
+for the same user.
