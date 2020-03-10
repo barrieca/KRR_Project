@@ -393,14 +393,7 @@ class TripleGenerator:
         # Generate a dataframe for the given list of csv files
         df_games = self.__create_dataframe_from_csv(input_paths)
 
-        # 3. Write out each row (which should contain one game each) to a triples file
-        # - Make this a separate function which takes a game name, a lists of the various properties to represent,
-        # and the output file.
-        # - May want to make this a member function of a Game Object, if we need more operations to be defined, or to
-        # make it more modular. Would be useful when joining information from multiple sources. Or maybe just use
-        # multiple dataframes and combine them that way first... more thought needed in the future.
-
-        # Open and overwrite a file
+        # Write out each row (which should contain one game each) to a triples file
         with open(output_path, 'w+') as f:
             for row in df_games.itertuples():
                 triples = self.__convert_row_to_triples(row)

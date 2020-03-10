@@ -115,7 +115,9 @@ In order to perform analogical retrieval based on each game represented in this 
 certain sets of facts into case libraries. This is done in the function `generate_case_library_krf()`. This function
 will add each game's microtheory to the case library.
 
-TODO: How many triples did we end up with, and how many games are represented in total?
+In total, we collected triples relating to 7433 games. In total, there were approximately 94000 triples in total, with
+~62000 facts about ~32000 distinct entities.
+
 
 #### Extending Companions Ontology
 We build on top of the NextKB ontology provided within Companions. The complete set of entities, collections, predicates,
