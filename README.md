@@ -159,22 +159,22 @@ with a result. Insertion of new knowledge into Companions is done in a similar w
 
 ### Reasoning
 
-We decided to use both analogical retrieval and case-based reasoning for our recommendations. Before we used Companions'
-built in analogical reasoning, we decided to do some pre-filtering on the games. We incorporated pre-existing domain
-knowledge, we determined that the recommended games should share at least one genre with one of the games the user
-provided for comparison.
+We decided to use both analogical retrieval and case-based reasoning for our recommendations. We decided to do some
+pre-filtering on the games before using Companions' built in analogical reasoning to generate candidates. We
+determined that the recommended games should share at least one genre with one of the games the user provided for
+ comparison.
 
 We noted that for user friendliness, the entire reasoning process must happen without the user having to interact with
 the system more than for providing previously played games, and feedback on the results.
 
-The reasoning process began with the user providing three games they had played in the past and enjoyed, with each
+The reasoning process begins with the user providing three games they had played in the past and enjoyed, with each
 game having at least one corresponding aspect that the user really liked about the game (e.g. art, gameplay, story).
-For each of these games, we dynamically created corresponding case libraries and added them as facts in Companions.
+For each of these games, we dynamically create corresponding case libraries and add them as facts in Companions.
 This task proved to be an involved process, as Companions didn't always correctly store the case libraries as case
 libraries after they were stored. We got it to work the way we wanted it, but if Companions doesn't store the case
 libraries correctly, our system doesn't work. We have run into the same issue with storing facts in Companions,
-with the same result that our system doesn't run. Only after we had inserted these libraries and all corresponding
-facts into Companions could the system proceed to the analogical retrieval.
+with the same result that our system doesn't run. Only after we insert these libraries and all corresponding
+facts into Companions does the system proceed to the analogical retrieval.
 
 This pre-filtering takes place in the `views.py` file (in the `results` function as that is where the games are
 provided). It also builds up the case libraries in this functions. It communicates with companions via the agent instantiated in `game_agent.py`.
@@ -192,7 +192,7 @@ As a concrete example, querying Companions for similar games to *Uncharted 4*, a
 designers, programmers, directors, artists, and composers. Although the numbers aren't identical for all people who
 worked on the game, Companions analogical reasoning does provide good candidates.
 
-Analogical reasoning is used in our system by taking the pre-filtered Case Libraries (each corresponding to one of
+In the analogical reasoning step, our system takes the pre-filtered Case Libraries (each corresponding to one of
 the games provided by the user), and queries Companions, e.g. `(reminding (KBCaseFn game1Mt)
 (CaseLibrarySansFn game1CaseLibrary game1Mt) (TheSet) ?mostsimilar ?matchinfo)`. We thus generate three different lists
 of games corresponding to the three different games provided by the user.
